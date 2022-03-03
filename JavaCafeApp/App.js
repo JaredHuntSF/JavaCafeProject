@@ -11,7 +11,10 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import Colors from './constants/colors';
 import Home from './screens/Home';
+import colors from './constants/colors';
+
 
 
 export default function App() {
@@ -27,6 +30,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: colors.primary
   }
 });
 
