@@ -11,5 +11,6 @@ export default {
     headingFontSize: 30,
     subHeadingFontSize: 25,
     paragraphFontSize: 20,
-    smallPrintFontSize: 12
+    smallPrintFontSize: 12,
+    menuItems: 30
 }
