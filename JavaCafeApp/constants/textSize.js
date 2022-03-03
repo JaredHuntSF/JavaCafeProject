@@ -8,7 +8,8 @@
 
 
 export default {
-    headingFontSize: 18,
-    subHeadingFontSize: 14,
-    paragraphFontSize: 12
+    headingFontSize: 30,
+    subHeadingFontSize: 25,
+    paragraphFontSize: 20,
+    smallPrintFontSize: 12
 }
