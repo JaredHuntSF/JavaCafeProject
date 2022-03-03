@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 import React, { useRef, useState } from "react";
-import { View, Text, StyleSheet, TouchableWithoutFeedback, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableWithoutFeedback, Image, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";  //need to run npm install @expo/vector-icons to get this package
 
 import colors from "../constants/colors";
@@ -15,13 +15,17 @@ import textSize from "../constants/textSize";
 const Home = () => {
 
     const currentUser = useRef("Mike" + "!"); //need to refactor: get value from db
-    const [pastOrders, setPastOrders] = useState([
-        'Order# 66 - 01/05/2022',
-        'Order# 65 - 01/04/2022',
-        'Order# 64 - 01/03/2022',
-        'Order# 63 - 01/02/2022',
-        'Order# 62 - 01/01/2022'
-    ]);
+    /**
+     * doesn't allow for rendering all items within flatlist;
+     * will load data from db anyway
+     */
+    const [pastOrders, setPastOrders] = useState([{
+        key: 'Order# 66 - 01/05/2022', value: 'Order# 66 - 01/05/2022',
+        key: 'Order# 65 - 01/04/2022', value: 'Order# 65 - 01/04/2022',
+        key: 'Order# 64 - 01/03/2022', value: 'Order# 64 - 01/03/2022',
+        key: 'Order# 63 - 01/02/2022', value: 'Order# 63 - 01/02/2022',
+        key: 'Order# 62 - 01/01/2022', value: 'Order# 62 - 01/01/2022'
+    }]);
 
     /* adds past order */
     const addPastOrdersHandler = () => {
@@ -36,14 +40,19 @@ const Home = () => {
             <Card style={styles.receiptRecapContainer}>
                 <Text style={styles.receiptRecapTitle}>Online Receipts</Text>
 
-                <View style={styles.pastOrdersContainer}>
-                    {pastOrders.map((order) => <Text style={styles.listItems}>{order}</Text>)}
-                </View>
+                {/**
+                 * Provides scrollview-like capabilities; 
+                 * renderItem takes function that is performed on each item data
+                 */}
+                <FlatList data={pastOrders} renderItem={orderItem => <Text style={styles.listItems}>{orderItem.item.value}</Text>} />
             </Card>
             <Card style={styles.recentOrdersContainer}>
                 <Text style={styles.recentOrdersTitle}>Recent Orders</Text>
 
                 <View style={styles.recentOrdersScroll}>
+                    {/**
+                     * All wired for touch events
+                     */}
                     <TouchableWithoutFeedback>
                         <Ionicons style={styles.backButton} name="arrow-back-circle-sharp"></Ionicons>
                     </TouchableWithoutFeedback>
@@ -81,7 +90,8 @@ const styles = StyleSheet.create({
         color: colors.text
     },
     receiptRecapContainer: {
-        marginVertical: -100
+        marginVertical: -100,
+        maxHeight: 200
     },
     pastOrdersContainer: {
         marginVertical: 10
@@ -92,7 +102,7 @@ const styles = StyleSheet.create({
         marginVertical: 2
     },
     recentOrdersContainer: {
-        marginVertical: 130
+        marginVertical: 130,
     },
     recentOrdersTitle: {
         fontSize: textSize.subHeadingFontSize,
