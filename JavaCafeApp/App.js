@@ -1,3 +1,12 @@
+/**
+ * Main
+ * @authors Mo Auguste, 
+ * @date    2022-03-02 21:32:48
+ * @version 1.0.0
+ */
+
+
+
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
