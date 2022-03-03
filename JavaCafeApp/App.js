@@ -1,7 +1,27 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import Home from './screens/Home';
+
+
+export default function App() {
+
+  return (
+    <View style={styles.screen}>
+      <Home />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    alignItems: 'center',
+  }
+});
+
+/*  THIS IS THE DEFAULT CODE
 export default function App() {
   const [outputText, setOutputText] = useState('Open up App.js to start working on your app!');
   return (
@@ -21,3 +41,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+*/
