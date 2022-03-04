@@ -8,13 +8,18 @@ import React, { useRef, useState } from "react";
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Image, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";  //need to run npm install @expo/vector-icons to get this package
 
-import colors from "../constants/colors";
+import TopNavigation from "../components/TopNavigtion";
 import Card from '../components/Card';
-import textSize from "../constants/textSize";
+import BottomNavigation from "../components/BottomNavigation";
+import colors from "../constants/colors";
+import textSize from "../constants/size";
 
 const Home = () => {
 
-    const currentUser = useRef("Mike" + "!"); //need to refactor: get value from db
+    const currentUser = useRef("Mike" + "!"); //Refactor Code: get value from db
+
+    const [greeting, setGreeting] = useState();
+
     /**
      * doesn't allow for rendering all items within flatlist;
      * will load data from db anyway
@@ -32,9 +37,23 @@ const Home = () => {
         setPastOrders(currentOrders => [...currentOrders, newOrder]);
     };
 
+    /* Refactor Code: Find way to access device time
+    const applyGreetingHandler = (timeOfDay) => {
+        if (timeOfDay > 0 && timeOfDay <= 12) {
+            setGreeting('Good Morning');
+        } else if (timeOfDay > 12 && timeOfDay < 5) {
+            setGreeting('Good Afternoon');
+        } else {
+            setGreeting('Good Evening');
+        }
+    };
+    */
+
     return (
         <View style={styles.screen}>
+            <TopNavigation />
             <Card style={styles.greetingContainer}>
+                {/**Refactor Code: Insert greeting*/}
                 <Text style={styles.greeting}>Good Morning, {currentUser.current}</Text>
             </Card>
             <Card style={styles.receiptRecapContainer}>
@@ -68,6 +87,7 @@ const Home = () => {
 
                 </View>
             </Card>
+            <BottomNavigation />
         </View>
     )
 }
@@ -82,7 +102,7 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     greetingContainer: {
-        marginVertical: 130,
+
     },
     receiptRecapTitle: {
         textAlign: "center",
@@ -90,11 +110,8 @@ const styles = StyleSheet.create({
         color: colors.text
     },
     receiptRecapContainer: {
-        marginVertical: -100,
+        marginTop: 50,
         maxHeight: 200
-    },
-    pastOrdersContainer: {
-        marginVertical: 10
     },
     listItems: {
         fontSize: textSize.paragraphFontSize,
@@ -102,7 +119,7 @@ const styles = StyleSheet.create({
         marginVertical: 2
     },
     recentOrdersContainer: {
-        marginVertical: 130,
+        marginTop: 20
     },
     recentOrdersTitle: {
         fontSize: textSize.subHeadingFontSize,
