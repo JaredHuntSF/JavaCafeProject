@@ -11,9 +11,11 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-import Colors from './constants/colors';
+
 import Home from './screens/Home';
+import AccountRegistration from './screens/AccountRegistration';
 import colors from './constants/colors';
+
 
 
 
@@ -21,7 +23,9 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Home />
+      {/** screens are commented out, to test other screens */}
+      {/** <Home /> */}
+      <AccountRegistration />
     </View>
   );
 }
