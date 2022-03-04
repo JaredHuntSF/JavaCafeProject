@@ -17,19 +17,34 @@ const AccountRegistration = () => {
     return (
         <View style={styles.screen}>
             <Text style={styles.header}>Account Registration</Text>
-            <TextInput style={styles.input} placeholder="Enter your name"></TextInput>
-            <Text style={styles.subHeader}>Email</Text>
-            <TextInput style={styles.input} placeholder="Enter your email"></TextInput>
-            <Text style={styles.subHeader}>Password</Text>
-            <TextInput style={styles.input} placeholder="Enter a password"></TextInput>
-            <Text style={styles.subHeader}>Retype Password</Text>
-            <TextInput style={styles.input} placeholder="Enter your password"></TextInput>
-            <Text style={styles.subHeader}>Phone Number</Text>
-            <TextInput style={styles.input}
-                placeholder="+1 (US) (X X X) XXX - XXXX"
-                underlineColorAndroid={colors.text}
-                placeholderTextColor={colors.text}
-            />
+            <View style={styles.body}>
+                <Text style={styles.subHeader}>Name</Text>
+                <TextInput style={styles.input}
+                    placeholder="Enter your name"
+                    underlineColorAndroid={colors.secondary}
+                    placeholderTextColor={colors.text}></TextInput>
+                <Text style={styles.subHeader}>Email</Text>
+                <TextInput style={styles.input}
+                    placeholder="Enter your email"
+                    underlineColorAndroid={colors.text}
+                    placeholderTextColor={colors.text}></TextInput>
+                <Text style={styles.subHeader}>Password</Text>
+                <TextInput style={styles.input}
+                    placeholder="Enter a password"
+                    underlineColorAndroid={colors.text}
+                    placeholderTextColor={colors.text}></TextInput>
+                <Text style={styles.subHeader}>Retype Password</Text>
+                <TextInput style={styles.input}
+                    placeholder="Enter your password"
+                    underlineColorAndroid={colors.text}
+                    placeholderTextColor={colors.text}></TextInput>
+                <Text style={styles.subHeader}>Phone Number</Text>
+                <TextInput style={styles.input}
+                    placeholder="+1 (US) (X X X) XXX - XXXX"
+                    underlineColorAndroid={colors.text}
+                    placeholderTextColor={colors.text}
+                />
+            </View>
         </View>
     )
 
