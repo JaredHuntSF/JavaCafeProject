@@ -10,7 +10,7 @@
 export default {
     headingFontSize: 30,
     subHeadingFontSize: 25,
-    paragraphFontSize: 20,
+    paragraphFontSize: 18,
     smallPrintFontSize: 12,
     menuItems: 30
 }
