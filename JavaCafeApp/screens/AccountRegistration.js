@@ -8,6 +8,8 @@
 
 import React from 'react';
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
+import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import { clearErrors } from 'react-native/Libraries/LogBox/Data/LogBoxData';
 
 import colors from '../constants/colors';
 import size from '../constants/size';
@@ -21,29 +23,43 @@ const AccountRegistration = () => {
                 <Text style={styles.subHeader}>Name</Text>
                 <TextInput style={styles.input}
                     placeholder="Enter your name"
-                    underlineColorAndroid={colors.secondary}
-                    placeholderTextColor={colors.text}></TextInput>
+                    placeholderTextColor={colors.text}
+                    textContentType="name"
+                    blurOnSubmit={true}
+                    maxLength={20} />
                 <Text style={styles.subHeader}>Email</Text>
                 <TextInput style={styles.input}
                     placeholder="Enter your email"
-                    underlineColorAndroid={colors.text}
-                    placeholderTextColor={colors.text}></TextInput>
+                    placeholderTextColor={colors.text}
+                    textContentType="emailAddress"
+                    blurOnSubmit={true}
+                    maxLength={50}
+                    keyboardType="email-address" />
                 <Text style={styles.subHeader}>Password</Text>
                 <TextInput style={styles.input}
                     placeholder="Enter a password"
-                    underlineColorAndroid={colors.text}
-                    placeholderTextColor={colors.text}></TextInput>
+                    placeholderTextColor={colors.text}
+                    textContentType="password"
+                    blurOnSubmit={true}
+                    maxLength={20} />
                 <Text style={styles.subHeader}>Retype Password</Text>
                 <TextInput style={styles.input}
                     placeholder="Enter your password"
-                    underlineColorAndroid={colors.text}
-                    placeholderTextColor={colors.text}></TextInput>
+                    placeholderTextColor={colors.text}
+                    textContentType="password"
+                    blurOnSubmit={true}
+                    maxLength={20} />
                 <Text style={styles.subHeader}>Phone Number</Text>
                 <TextInput style={styles.input}
-                    placeholder="+1 (US) (X X X) XXX - XXXX"
-                    underlineColorAndroid={colors.text}
+                    placeholder="+1 (XXX) XXX - XXXX"
                     placeholderTextColor={colors.text}
-                />
+                    textContentType="telephoneNumber"
+                    blurOnSubmit={true}
+                    maxLength={10}
+                    keyboardType="numeric" />
+                <View style={styles.button}>
+                    <Button title="Sign Up" color={colors.secondary} />
+                </View>
             </View>
         </View>
     )
@@ -53,11 +69,15 @@ const AccountRegistration = () => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 15
     },
     header: {
         fontSize: size.headingFontSize,
         color: colors.text
+    },
+    body: {
+        marginTop: 25
     },
     subHeader: {
         fontSize: size.subHeadingFontSize,
@@ -65,6 +85,18 @@ const styles = StyleSheet.create({
     },
     input: {
         color: colors.text,
+        marginVertical: 5,
+        fontSize: size.paragraphFontSize,
+        height: 50,
+        borderBottomColor: colors.text,
+        width: 350,
+        borderWidth: 1
+    },
+    button: {
+        width: 80,
+        color: colors.secondary,
+        alignSelf: 'center',
+        marginTop: 25
     }
 });
 
