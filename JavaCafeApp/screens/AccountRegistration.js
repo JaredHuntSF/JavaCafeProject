@@ -15,9 +15,9 @@ import {
     TextInput,
     TouchableWithoutFeedback,
     Keyboard,
-    ScrollView
+    ScrollView,
+    Alert
 } from 'react-native';
-import { useReducer } from 'react/cjs/react.production.min';
 
 import colors from '../constants/colors';
 import size from '../constants/size';
@@ -42,10 +42,8 @@ const AccountRegistration = () => {
         setName(input);
 
         if (name.match(regex)) {
-            //console.log('Matched' + name);
             setNameError(' ');
         } else {
-            //console.log('Name does not match.');
             setNameError('Please enter valid name.');
         }
     };
@@ -56,11 +54,9 @@ const AccountRegistration = () => {
         setEmail(input);
 
         if (regex.test(input)) {                    //built-in function to check regex
-            //console.log('Matched' + email);
             setEmailError(' ');
 
         } else {
-            //console.log('Email does not match.');
             setEmailError('Please enter valid email.');
         }
     };
@@ -79,15 +75,53 @@ const AccountRegistration = () => {
         setPhone(input);
 
         if (regex.test(input)) {
-            console.log('Matched' + phone);
             setPhoneError(' ');
         } else {
-            //console.log('Phone does not match.');
             setPhoneError('Not a valid number.');
         }
         //setPhone(input.replace(/[^0-9]/g, ''));
     };
 
+    const submitHandler = () => {
+        if (name.length == 0) {
+            Alert.alert(
+                'Missing Name', 'Please enter a name.',
+                [{
+                    text: "OK"
+                }]
+            )
+        } else if (email.length == 0) {
+            Alert.alert(
+                'Missing Email', 'Please enter an email.',
+                [{
+                    text: "OK"
+                }]
+            )
+        } else if (password.length == 0) {
+            Alert.alert(
+                'Missing Password', 'Please enter a password.',
+                [{
+                    text: "OK"
+                }]
+            )
+        } else if (passwordCheck.length == 0) {
+            Alert.alert(
+                'Password Verificaiton', 'Please enter password again.',
+                [{
+                    text: "OK"
+                }]
+            )
+        } else if (phone.length == 0) {
+            Alert.alert(
+                'Missing Number', 'Please enter a phone number.',
+                [{
+                    text: "OK"
+                }]
+            )
+        } else {
+            //Refactor: SUBMIT DATA TO DB
+        }
+    }
     /**
      * runs the code on the current render; not one behind as found with passwordCheckHandler
      */
@@ -95,7 +129,6 @@ const AccountRegistration = () => {
         if (password.length == 0 || passwordCheck.length == 0) {
 
         } else if (passwordCheck === password) {
-            //console.log('Password Matched');
             setPasswordError(' ');
         } else {
             setPasswordError('Does not match.');
@@ -172,7 +205,7 @@ const AccountRegistration = () => {
                             onChangeText={phoneHandler}
                             value={phone} />
                         <View style={styles.button}>
-                            <Button title="Sign Up" color={colors.secondary} />
+                            <Button title="Sign Up" color={colors.secondary} onPress={submitHandler} />
                         </View>
                     </View>
                 </ScrollView>
