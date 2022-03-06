@@ -25,17 +25,27 @@ import size from '../constants/size';
 
 const AccountRegistration = () => {
 
+    /**
+     * used for retrieving user input
+     */
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
     const [phone, setPhone] = useState('');
 
+    /**
+     * used for error messages for user input
+     */
     const [nameError, setNameError] = useState(' ');
     const [emailError, setEmailError] = useState(' ');
     const [passwordError, setPasswordError] = useState(' ');
     const [phoneError, setPhoneError] = useState(' ');
 
+    /**
+     * 
+     * getting user input
+     */
     const nameHandler = input => {
         var regex = /^[a-z ,.'-]+$/i;
 
@@ -79,9 +89,11 @@ const AccountRegistration = () => {
         } else {
             setPhoneError('Not a valid number.');
         }
-        //setPhone(input.replace(/[^0-9]/g, ''));
     };
 
+    /**
+     * submitting user input
+     */
     const submitHandler = () => {
         if (name.length == 0) {
             Alert.alert(
@@ -123,7 +135,7 @@ const AccountRegistration = () => {
         }
     }
     /**
-     * runs the code on the current render; not one behind as found with passwordCheckHandler
+     * runs the code on the current render; not one behind like with passwordCheckHandler
      */
     useEffect(() => {
         if (password.length == 0 || passwordCheck.length == 0) {
@@ -196,7 +208,7 @@ const AccountRegistration = () => {
                             <Text style={styles.errorMessage}>{phoneError}</Text>
                         </View>
                         <TextInput style={styles.input}
-                            placeholder="+1 (XXX) XXX - XXXX"
+                            placeholder="(XXX) XXX - XXXX"
                             placeholderTextColor={colors.text}
                             textContentType="telephoneNumber"
                             blurOnSubmit={true}
