@@ -15,6 +15,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import Home from './screens/Home';
 import AccountRegistration from './screens/AccountRegistration';
 import colors from './constants/colors';
+import Header from './components/Header';
 
 
 
@@ -24,7 +25,8 @@ export default function App() {
   return (
     <View style={styles.screen}>
       {/** screens are commented out, to test other screens */}
-      {/** <Home /> */}
+      <Header />
+      {/**<Home />*/}
       <AccountRegistration />
     </View>
   );
