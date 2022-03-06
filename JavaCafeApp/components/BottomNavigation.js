@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     bottomNavigationContainer: {
         flexDirection: 'row',
         height: 100,
-        top: '50%',
+        top: '40%',
         justifyContent: 'space-between'
     },
     menuIcon: {
