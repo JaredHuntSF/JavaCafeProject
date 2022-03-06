@@ -9,7 +9,8 @@
 
 export default {
     primary: '#000',
-    secondary: '#63666A',
+    secondary: '#5F7385',
+    header: '#C0C9D1',
     assessory: '#FF850F',
     text: '#fff'
 }
