@@ -1,5 +1,6 @@
 /**
  * Home Component: Returns all home screen elements to main
+ * Note to team: Needed to install package for icons
  * @authors Mo Auguste
  * @date    2022-03-02 21:31:34
  * @version 1.0.0
