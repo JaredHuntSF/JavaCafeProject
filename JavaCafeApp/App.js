@@ -5,11 +5,10 @@
  * @version 1.0.0
  */
 
-
-
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 import Home from './screens/Home';
@@ -17,15 +16,14 @@ import AccountRegistration from './screens/AccountRegistration';
 import colors from './constants/colors';
 import Header from './components/Header';
 
-
-
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
   return (
     <View style={styles.screen}>
       {/** screens are commented out, to test other screens */}
-      <Header />
+      {/**<Header />*/}
       {/**<Home />*/}
       <AccountRegistration />
     </View>
