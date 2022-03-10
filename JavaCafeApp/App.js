@@ -1,6 +1,6 @@
 /**
  * Main
- * @authors Mo Auguste, 
+ * @authors Mo Auguste, Jared
  * @date    2022-03-02 21:32:48
  * @version 1.0.0
  */
@@ -12,7 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { createStore, combineReducers } from 'redux'; //create a root reducer to combine multiple reducers into a single one
 import { Provider } from 'react-redux'; //Provider app is wrapped around our application to, well, provide something
-import productsReducer from '../store/reducers/products';
+import productsReducer from './store/reducers/products';
 
 
 
@@ -39,19 +39,18 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   return (
-    
-    
-    // <View style={styles.screen}>
-    //   {/** screens are commented out, to test other screens */}
-    //   {/**<Header />*/}
-    //   {/**<Home />*/}
-    //   <AccountRegistration />
-    //   {/**<Button />**/}
-    // </View>
 
-    <Provider store={store}>
-      
-    </Provider>
+    <View style={styles.screen}>
+      {/** screens are commented out, to test other screens */}
+      {/**<Header />*/}
+      {/**<Home />*/}
+      <AccountRegistration />
+      {/**<Button />**/}
+    </View>
+
+    // <Provider store={store}>
+
+    // </Provider>
   );
 }
 
