@@ -10,6 +10,12 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { createStore, combineReducers } from 'redux'; //create a root reducer to combine multiple reducers into a single one
+import { Provider } from 'react-redux'; //Provider app is wrapped around our application to, well, provide something
+import productsReducer from '../store/reducers/products';
+
+
+
 
 import Home from './screens/Home';
 import AccountRegistration from './screens/AccountRegistration';
@@ -19,18 +25,33 @@ import Login from './screens/Login';
 import AccountInfo from './screens/AccountInformation';
 import Menu from './screens/Menu';
 
+
+
+const rootReducer = combineReducers({
+  products: productsReducer
+})
+
+const store = createStore(rootReducer) //Takes rootReducer as a single argument
+
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
 
   return (
-    <View style={styles.screen}>
-      {/** screens are commented out, to test other screens */}
-      {/**<Header />*/}
-      {/**<Home />*/}
-      <AccountRegistration />
-      {/**<Button />**/}
-    </View>
+    
+    
+    // <View style={styles.screen}>
+    //   {/** screens are commented out, to test other screens */}
+    //   {/**<Header />*/}
+    //   {/**<Home />*/}
+    //   <AccountRegistration />
+    //   {/**<Button />**/}
+    // </View>
+
+    <Provider store={store}>
+      
+    </Provider>
   );
 }
 
