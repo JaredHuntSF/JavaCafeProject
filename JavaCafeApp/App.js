@@ -26,6 +26,7 @@ export default function App() {
       {/**<Header />*/}
       {/**<Home />*/}
       <AccountRegistration />
+      {/**<Button />**/}
     </View>
   );
 }
