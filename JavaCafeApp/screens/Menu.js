@@ -6,6 +6,8 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
+import colors from '../constants/colors';
+
 
 
 
@@ -20,10 +22,10 @@ const Menu = props => {
             </View>
 
             {/**Cold Drinks */}
-            <ScrollView horizontal style={styles.subMenu}>
+            <ScrollView horizontal style={styles.subMenu}  color={colors.assessory} >
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/iced_coffee.jpg')} style={styles.subMenuImg} />
-                    <Text>Iced Coffee</Text>
+                    <Text style={styles.productName}>Iced Coffee</Text> 
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/iced_latte.jpg')} style={styles.subMenuImg} />
@@ -132,6 +134,10 @@ const styles = StyleSheet.create({
     subMenuImg: {
         width: 100,
         height: 100,
+    },
+    productName: {
+        color: colors.text,
+        
     }
 
 });
