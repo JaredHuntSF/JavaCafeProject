@@ -16,7 +16,7 @@ import AccountRegistration from './screens/AccountRegistration';
 import colors from './constants/colors';
 import Header from './components/Header';
 import Login from './screens/Login';
-import AccountInfo from './screens/AccountInfo';
+import AccountInfo from './screens/AccountInformation';
 import Menu from './screens/Menu';
 
 const Stack = createNativeStackNavigator();
