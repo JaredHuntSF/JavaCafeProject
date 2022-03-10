@@ -51,4 +51,4 @@ const PRODUCTS = [
   )
 ];
 
-export default PRODUCTS;
+export default PRODUCTS; //export as a default so that product reducer can import
