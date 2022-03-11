@@ -1,0 +1,54 @@
+Iced Latte
+-Dairy
+    -whole milk
+    -skim milk
+    -almond milk
+    -cream
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -None
+
+Iced Latte
+-Dairy
+    -whole milk
+    -skim milk
+    -almond milk
+    -cream
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -Tree Nuts
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+Iced Macchiato
+-Dairy
+    -Whole milk
+    -Skim milk
+    -Almond milk
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -Tree Nuts
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
