@@ -4,9 +4,12 @@ import { Platform } from 'react-native';
 import colors from '../constants/colors';
 import Menu from '../screens/Menu';
 import Checkout from '../screens/Checkout';
-
+import Home from '../screens/Home';
+import AccountInfo from '../screens/AccountInformation';
+import Allergies from '../screens/Allergies';
 
 const CafeAppNavigator = createStackNavigator({
+    Allergies: Allergies,
     Checkout: Checkout,
     Menu: Menu
 },{

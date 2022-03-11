@@ -8,9 +8,9 @@
 
 
 export default {
-    primary: '#000',
+    primary: '#000', //Black
     secondary: '#5F7385',
     header: '#C0C9D1',
-    assessory: '#FF850F',
-    text: '#fff'
+    assessory: '#FF850F', //Orange
+    text: '#fff' //White
 }
