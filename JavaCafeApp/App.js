@@ -1,6 +1,6 @@
 /**
  * Main
- * @authors Mo Auguste, Jared
+ * @authors Mo Auguste, Jared Hunt
  * @date    2022-03-02 21:32:48
  * @version 1.0.0
  */
@@ -21,13 +21,12 @@ import CafeNavigator from './navigation/CafeNavigator';
 
 import Home from './screens/Home';
 import AccountRegistration from './screens/AccountRegistration';
+import IndividualPastOrders from './components/IndividualPastOrders';
 import colors from './constants/colors';
 import Header from './components/Header';
 import Login from './screens/Login';
 import AccountInfo from './screens/AccountInformation';
 import Menu from './screens/Menu';
-
-
 
 const rootReducer = combineReducers({
   products: productsReducer
@@ -39,20 +38,38 @@ const store = createStore(rootReducer) //Takes rootReducer as a single argument
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [showOrder, setShowOrder] = useState(false);
+
+  /**
+   * Move to 'list_of_past_orders
+   */
+  const closeButtonHandler = () => {
+    setShowOrder(false);
+  }
 
   return (
 
-    // <View style={styles.screen}>
-    //   {/** screens are commented out, to test other screens */}
-    //   {/**<Header />*/}
-    //   {/**<Home />*/}
-    //   <AccountRegistration />
-    //   {/**<Button />**/}
-    // </View>
+    <View style={styles.screen}>
+      {/** screens are commented out, to test other screens */}
+      {/** <Header />*/}
+      {/* <Home /> */}
+      {/* <AccountRegistration /> */}
+      {/**
+       * uses user-created 'visible' prop to hide modal
+       * uses user-created 'onClose' prop to pass function to external js file
+       */}
+      <IndividualPastOrders visible={showOrder} onClose={closeButtonHandler} />
+      {/**
+       * Move to 'list_of_past_orders
+       */}
+      <View style={{ marginTop: 200 }}>
+        <Button title='Press for Order Details' onPress={() => setShowOrder(true)} />
+      </View>
+    </View>
 
-    <Provider store={store}>
-      <CafeNavigator />
-    </Provider>
+    // <Provider store={store}>
+    //   <CafeNavigator />
+    // </Provider>
   );
 }
 
