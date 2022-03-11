@@ -5,14 +5,25 @@
   */
 
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
+import { StyleSheet, FlatList, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
 import colors from '../constants/colors';
+import { useSelector } from 'react-redux';
 
 
 
 
 const Menu = props => {
+    const products = useSelector(state => state.products.availableProducts)
     return (
+
+        // <FlatList 
+        
+        // data={products}
+        // keyExtractor={item => item.id}
+        // renderItem={itemData => <Text>{itemData.item.title}</Text>}
+
+        // />
+
         <View style={styles.container}>
             <View style={styles.filter}>
                 <Button title='Menu' />
@@ -25,7 +36,7 @@ const Menu = props => {
             <ScrollView horizontal style={styles.subMenu}  color={colors.assessory} >
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/iced_coffee.jpg')} style={styles.subMenuImg} />
-                    <Text style={styles.productName}>Iced Coffee</Text> 
+                    <Text >Iced Coffee</Text> 
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/iced_latte.jpg')} style={styles.subMenuImg} />
@@ -108,7 +119,7 @@ const Menu = props => {
 
 
 
-        </View>
+         </View>
     );
 }
 

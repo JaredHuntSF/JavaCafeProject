@@ -9,10 +9,12 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'react-native-gesture-handler';
 
 import { createStore, combineReducers } from 'redux'; //create a root reducer to combine multiple reducers into a single one
 import { Provider } from 'react-redux'; //Provider app is wrapped around our application to, well, provide something
 import productsReducer from './store/reducers/products';
+import CafeNavigator from './navigation/CafeNavigator';
 
 
 
@@ -40,17 +42,17 @@ export default function App() {
 
   return (
 
-    <View style={styles.screen}>
-      {/** screens are commented out, to test other screens */}
-      {/**<Header />*/}
-      {/**<Home />*/}
-      <AccountRegistration />
-      {/**<Button />**/}
-    </View>
+    // <View style={styles.screen}>
+    //   {/** screens are commented out, to test other screens */}
+    //   {/**<Header />*/}
+    //   {/**<Home />*/}
+    //   <AccountRegistration />
+    //   {/**<Button />**/}
+    // </View>
 
-    // <Provider store={store}>
-
-    // </Provider>
+    <Provider store={store}>
+      <CafeNavigator />
+    </Provider>
   );
 }
 
