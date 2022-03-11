@@ -57,6 +57,7 @@ export default function App() {
       {/**
        * uses user-created 'visible' prop to hide modal
        * uses user-created 'onClose' prop to pass function to external js file
+       * Move to 'list_of_past_orders
        */}
       <IndividualPastOrders visible={showOrder} onClose={closeButtonHandler} />
       {/**
