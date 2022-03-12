@@ -18,7 +18,7 @@ const CafeAppNavigator = createStackNavigator({
 },{
     defaultNavigationOptions: {
         headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? colors.primary : ''
+            backgroundColor: Platform.OS === 'android' ? colors.primary : 'black'
         },
         headerTintColor: Platform.OS === 'android' ? 'white' : colors.primary
     }
