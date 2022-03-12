@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback,Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '../constants/colors';
 import size from '../constants/size';
@@ -15,20 +15,22 @@ import size from '../constants/size';
 
 const BottomNavigation = () => {
     return (
-        <View style={styles.bottomNavigationContainer}>
-            <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='home-outline'></Ionicons>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='cafe-outline'></Ionicons>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='location-outline'></Ionicons>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='cart-outline'></Ionicons>
-            </TouchableWithoutFeedback>
-        </View>
+        
+            <View style={styles.bottomNavigationContainer}>
+                    <TouchableWithoutFeedback>
+                        <Ionicons style={styles.menuIcon} name='home'></Ionicons>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback>
+                        <Ionicons style={styles.menuIcon} name='cafe'></Ionicons>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback>
+                        <Ionicons style={styles.menuIcon} name='location'></Ionicons>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback>
+                        <Ionicons style={styles.menuIcon} name='cart'></Ionicons>
+                    </TouchableWithoutFeedback>
+            </View>
+            
     )
 };
 
@@ -37,15 +39,19 @@ const BottomNavigation = () => {
  * This will not work for all screens
  */
 const styles = StyleSheet.create({
+
     bottomNavigationContainer: {
         flexDirection: 'row',
+        width: '100%',
         //height: 100, //Commented this out, because this was causing problems
         //top: '40%', //Commented this out, because this was causing problems
         justifyContent: 'space-between'
     },
     menuIcon: {
         color: colors.text,
-        fontSize: size.menuItems
+        fontSize: size.menuItems,
+        padding: 20
+
     }
 });
 
