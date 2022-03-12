@@ -10,11 +10,12 @@ import Allergies from '../screens/Allergies';
 import Login from '../screens/Login';
 
 const CafeAppNavigator = createStackNavigator({
+    Menu: Menu,
     Checkout: Checkout,
     Login: Login,
     Allergies: Allergies,
     
-    Menu: Menu
+
 },{
     defaultNavigationOptions: {
         headerStyle: {

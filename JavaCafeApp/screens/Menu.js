@@ -31,22 +31,17 @@ const Menu = props => {
             <FlatList
             data={products}
             keyExtractor={item => item.id}
-            renderItem={itemData => (
-                <MenuItem
-                image={itemData.item.imageUrl}
-                title={itemData.item.title}
-                price={itemData.item.price}
-                onViewDetail={() => {
-                    props.navigation.navigate('ProductDetail', {
-                    productId: itemData.item.id,
-                    productTitle: itemData.item.title
-                    });
-                }}
-                onAddToCart={() => {
-                    dispatch(cartActions.addToCart(itemData.item));
-                }}
-                />
-            )}
+            renderItem={itemData => 
+            <View>
+                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                <Text style={styles.text}>{itemData.item.title}</Text>
+                
+            </View>
+            
+        
+        
+        
+        }
             />
 {/* 
             <ScrollView horizontal style={styles.subMenu}  color={colors.assessory} >
@@ -166,6 +161,14 @@ const styles = StyleSheet.create({
     productName: {
         color: colors.text,
         
+    },
+    image: {
+        width: 100,
+        height: 100,
+        
+    },
+    text: {
+        color: colors.text
     }
 
 });
