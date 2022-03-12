@@ -12,9 +12,11 @@ import HeaderButton from '../components/HeaderButton';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
+import BottomNavigation from '../components/BottomNavigation';
 
 import Colors from '../constants/colors';
 import CartItem from '../components/CartItem';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 const Checkout = props => {
 const cartItems = '';
@@ -61,9 +63,7 @@ return (
                 </Text>
             </Text>
         </View>
-    </View>
-    
-
+    </View>              
     <View style={styles.submitOrder}>
             <Button
             color={Colors.assessory}
@@ -71,6 +71,7 @@ return (
             //          disabled={cartItems.length === 0}
             />
     </View>
+    <BottomNavigation/> 
 </View>
 );
 };
@@ -89,10 +90,7 @@ return (
 Checkout.navigationOptions = navData => {
 
     return {
-    headerTitle: 'Your Cart',
-    headerRight: <HeaderButtons HeaderButtonComponent={HeaderButton}>
-    <Item title='cart' iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'} />
-    </HeaderButtons>,
+    headerTitle: 'Order',
     headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} > 
     <Item 
     title='Menu' 
@@ -107,7 +105,8 @@ Checkout.navigationOptions = navData => {
 
 const styles = StyleSheet.create({
 screen: {
-    margin: 20
+    //margin: 20, //Caused formatting issues
+    backgroundColor: 'black'
 },
 summary: {
     flexDirection: 'row',
