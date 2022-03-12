@@ -7,8 +7,10 @@ import Checkout from '../screens/Checkout';
 import Home from '../screens/Home';
 import AccountInfo from '../screens/AccountInformation';
 import Allergies from '../screens/Allergies';
+import Login from '../screens/Login';
 
 const CafeAppNavigator = createStackNavigator({
+    Login: Login,
     Allergies: Allergies,
     Checkout: Checkout,
     Menu: Menu
