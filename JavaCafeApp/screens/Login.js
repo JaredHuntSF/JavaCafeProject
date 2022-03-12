@@ -44,7 +44,7 @@ const Login = props => {
             
             
                 <View>
-                    <Button style={styles.btn} title="Log In" onPress={testAlert} />
+                    <Button color='#FF850F' title="Log In" onPress={testAlert} />
                 </View>
 
                 <View>
