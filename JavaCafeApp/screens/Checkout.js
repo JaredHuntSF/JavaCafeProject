@@ -4,8 +4,8 @@
  * @version 1.0.0
  */
 
-import React from 'react';
-import { View, Text, FlatList, Button, StyleSheet, Platform, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, FlatList, Button, StyleSheet, Platform, TouchableOpacity, Switch } from 'react-native';
 import { useSelector } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
@@ -36,9 +36,10 @@ const cartItems = '';
 //     return transformedCartItems;
 // });
 
+const [isEnabled, setIsEnabled] = useState(false);
+const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 return (
 <View style={styles.screen}>
-    <View style={styles.surroundSummary}>
         <FlatList
         data={cartItems}
         keyExtractor={item => item.productId}
@@ -51,15 +52,68 @@ return (
             />
             )}
             />
+        <View style={styles.body}>
+                <Text style={{color: 'white'}} >Order Now</Text>        
+                <Switch 
+                trackColor={{ false: "#767577", true: Colors.assessory }}
+                thumbColor={isEnabled ? Colors.text : Colors.header}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={toggleSwitch}
+                value={isEnabled} 
+                />
+            </View>
+        <View style={styles.body}>
+            <Text style={{color: 'white'}} >Order Later</Text>        
+            <Switch 
+            trackColor={{ false: "#767577", true: Colors.assessory }}
+            thumbColor={isEnabled ? Colors.text : Colors.header}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={toggleSwitch}
+            value={isEnabled} 
+            />
+        </View>
+        <View style={styles.body}>
+                <Text style={{color: 'white'}} >Apply Points</Text>        
+                <Switch 
+                trackColor={{ false: "#767577", true: Colors.assessory }}
+                thumbColor={isEnabled ? Colors.text : Colors.header}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={toggleSwitch}
+                value={isEnabled} 
+                />
+        </View>
         <View style={styles.summary}>
             <Text style={styles.summaryText}>
+            Subtotal:{' '}
+                <Text style={styles.text}>${//tips to be implemented
+                }
+                </Text>
+            </Text>
+            <Text style={styles.summaryText}>
+            Redeem:{' '}
+                <Text style={styles.text}>-{//redeem to be implemented
+                }
+                </Text>
+            </Text>
+            <Text style={styles.summaryText}>
+            Tax:{' '}
+                <Text style={styles.text}>${//tax to be implemented
+                }
+                </Text>
+            </Text>
+            <Text style={styles.summaryText}>
+            Tip:{' '}
+                <Text style={styles.text}>${//tips to be implemented
+                }
+                </Text>
+            </Text>
+            <Text style={styles.summaryText}>
             Total:{' '}
-                <Text style={styles.amount}>${//cartTotalAmount.toFixed(2)
+                <Text style={styles.text}>${//cartTotalAmount.toFixed(2)
                 }
                 </Text>
             </Text>
         </View>
-    </View> 
 
     <View style={styles.submitOrder}>
             <TouchableOpacity
@@ -108,22 +162,35 @@ screen: {
     width: '100%',
     height: '100%'
 },
-summary: {
+body: {
+    margin: 4,
+    padding: 0,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'flex-end'
+},
+summary: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     marginBottom: 20,
+    margin: 240,
     padding: 10,
+    width: '30%',
     shadowColor: 'black',
     shadowOpacity: 0.26,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     elevation: 5,
     borderRadius: 10,
-    backgroundColor: 'white'
+    backgroundColor: 'black',
+},
+text: {
+    color: 'white',
 },
 summaryText: {
-    fontSize: 18
+    fontSize: 18,
+    color: 'white',
 },
 surroundSummary: {
     flex: 8
