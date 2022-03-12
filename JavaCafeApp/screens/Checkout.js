@@ -37,24 +37,19 @@ const cartItems = '';
 
 return (
 <View style={styles.screen}>
-
-    <FlatList
+    <View style={styles.surroundSummary}>
+        <FlatList
         data={cartItems}
         keyExtractor={item => item.productId}
         renderItem={itemData => (
-        <CartItem
-            quantity={itemData.item.quantity}
-            title={itemData.item.productTitle}
-            amount={itemData.item.sum}
-            onRemove={() => {}}
-        />
-        )}
-        
-    />
-
-
-
-    <View style={styles.surroundSummary}>
+            <CartItem
+                quantity={itemData.item.quantity}
+                title={itemData.item.productTitle}
+                amount={itemData.item.sum}
+                onRemove={() => {}}
+            />
+            )}
+            />
         <View style={styles.summary}>
             <Text style={styles.summaryText}>
             Total:{' '}
@@ -63,7 +58,8 @@ return (
                 </Text>
             </Text>
         </View>
-    </View>              
+    </View> 
+
     <View style={styles.submitOrder}>
             <Button
             color={Colors.assessory}
@@ -71,7 +67,7 @@ return (
             //          disabled={cartItems.length === 0}
             />
     </View>
-    <BottomNavigation/> 
+    <BottomNavigation style={styles.bottomBar} /> 
 </View>
 );
 };
@@ -106,7 +102,9 @@ Checkout.navigationOptions = navData => {
 const styles = StyleSheet.create({
 screen: {
     //margin: 20, //Caused formatting issues
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    width: '100%',
+    height: '100%'
 },
 summary: {
     flexDirection: 'row',
@@ -126,14 +124,17 @@ summaryText: {
     fontSize: 18
 },
 surroundSummary: {
-    height: '90%'
+    flex: 8
 },
 amount: {
     color: Colors.primary
 },
 submitOrder: {
-    
+    flex: 1,
     alignItems: 'center'
+},
+bottomBar: {
+    flex: 1
 }
 });
 
