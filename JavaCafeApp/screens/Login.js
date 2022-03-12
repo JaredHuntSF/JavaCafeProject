@@ -27,14 +27,14 @@ const Login = props => {
             <View style={styles.body}>
                 <View>
                 <Text style={styles.body}>Email</Text>        
-                <TextInput 
+                <TextInput style={styles.textinput}
                     placeholder="Enter your email address" />
                 </View>
 
 
                 <View>
                     <Text style={styles.body}>Password</Text>
-                    <TextInput  
+                    <TextInput  style={styles.textinput}
                     secureTextEntry={true} placeholder="Enter your password"/>
                 </View>
 
@@ -75,8 +75,13 @@ const styles = StyleSheet.create({
         color: colors.text
     },
     btn: {
-        color: colors.assessory,
+        color: '#ffffff',
+        borderColor: '#ffffff',
+        borderWidth: 5
     },
+    textinput: {
+        color: 'white'
+    }
 
 
 
