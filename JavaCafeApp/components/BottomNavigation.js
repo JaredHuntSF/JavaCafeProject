@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         width: '100%',
         //height: 100, //Commented this out, because this was causing problems
         //top: '40%', //Commented this out, because this was causing problems
-        justifyContent: 'space-between'
+        //justifyContent: 'space-between'
     },
     menuIcon: {
         color: colors.text,
