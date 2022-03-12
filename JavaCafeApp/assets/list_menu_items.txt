@@ -1,4 +1,7 @@
-Iced Latte
+COLD BREWS
+------------
+Iced Coffee
+------------
 -Dairy
     -whole milk
     -skim milk
@@ -16,7 +19,18 @@ Iced Latte
 -Allergens
     -None
 
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+-----------
 Iced Latte
+-----------
 -Dairy
     -whole milk
     -skim milk
@@ -35,7 +49,18 @@ Iced Latte
     -Tree Nuts
     *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
 
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+---------------
 Iced Macchiato
+---------------
 -Dairy
     -Whole milk
     -Skim milk
@@ -52,3 +77,384 @@ Iced Macchiato
 -Allergens
     -Tree Nuts
     *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+---------
+Iced Tea
+---------
+-Blend
+    -Sweet
+    -Unsweet
+
+-Flavor
+    -Lemonade
+    -Raspberry
+
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.59
+    -2.59
+    -3.59
+---------
+Lemonade
+---------
+-Flavor
+    -Original
+    -Pink
+
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+---------------
+Iced Americano
+---------------
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+----------------
+Iced Cappuccino
+----------------
+-Dairy
+    -whole milk
+    -skim milk
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -Milk
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+-----------
+Iced Latte
+-----------
+-Dairy
+    -cream
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+ -----------
+| HOT BREWS |
+ -----------
+--------------- 
+Classic Coffee
+---------------
+-Dairy
+    -Whole milk
+    -Skim milk
+    -Almond milk
+    -Cream
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.59
+    -3.59
+-------------
+Decaf Coffee
+-------------
+-Dairy
+    -Whole milk
+    -Skim milk
+    -Almond milk
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.59
+    -3.59
+-----------
+Cappuccino
+-----------
+-Dairy
+    -Whole milk
+    -Skim milk
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -Milk
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Size
+    -small
+    -medium
+    -large
+    
+-Price
+    -1.99
+    -2.99
+    -3.99
+---------
+Espresso
+---------
+-Sweetner
+    -Sugar
+
+-Allergens
+    -None
+
+-Price
+    -2.99
+------
+Latte
+------
+-Dairy
+    -Whole milk
+    -Skim milk
+    -Almond milk
+
+-Flavor
+    -French Vanilla
+    -Caramel
+    -Mocha
+
+-Sweetner
+    -Sugar
+
+-Allergens
+    -Tree Nuts
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.99
+    -3.99
+--------
+Hot Tea
+--------
+-Flavor
+    -Green
+    -Chamomile
+    -Decaf
+
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.59
+    -3.59
+--------------
+Hot Chocolate
+--------------
+-Flavor
+    -Original
+    -Mint
+
+-Allergens
+    -Milk
+    -Soy
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.59
+    -3.59
+----------
+Americano
+----------
+-Allergens
+    -None
+
+-Size
+    -small
+    -medium
+    -large
+
+-Price
+    -1.99
+    -2.59
+    -3.59
+ -----------
+| Pasteries |
+ -----------
+
+---------------
+Cinnamon Roll
+---------------
+-Allergens
+    -None
+    
+-Price
+    -3.99
+--------
+Macaron
+--------
+-Allergens
+    -Tree Nuts
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Quatity
+    -6
+
+-Price
+    -3.99
+-------------------
+Vanilla Bean Scone
+-------------------
+-Allergens
+    -milk
+
+-Price
+    -2.99
+-------
+Eclair
+-------
+-Allergens
+    -Eggs
+    -Milk
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Price
+    -2.99
+--------------
+Sugar Cookie
+---------------
+-Allergens
+    -Eggs
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Price
+    -1.59
+-----------------------
+Chocolate Chip Cookie
+-----------------------
+-Allergens
+    -Eggs
+
+-Price
+    -2.99
+-------------
+Glazed Donut
+-------------
+-Allergens
+    -Milk
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Price
+    -1.99
+
+-------------
+Donut Holes
+-------------
+-Allergens
+    -Milk
+    *Please be advised that any of our products may contain, or may have come in contact with, allergens including Eggs, Fish, Milk, Peanuts, Shellfish, Soy, Tree nuts, and Wheat.
+
+-Quatity
+    -6
+
+-Price
+    -2.99
