@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         color: colors.text
     },
     btn: {
-        color: "#d46313",
+        color: colors.assessory,
     },
 
 
