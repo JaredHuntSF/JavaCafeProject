@@ -6,11 +6,13 @@
 
 
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { useState } from 'react';
 
-
+const testAlert = () => {
+    Alert.alert('Wrong input!', 'Please check the errors in the form.', [{text: 'Okay'}] )
+};
 
 
 
@@ -42,7 +44,7 @@ const Login = props => {
             
             
                 <View>
-                    <Button style={styles.btn} title="Log In" />
+                    <Button style={styles.btn} title="Log In" onPress={testAlert} />
                 </View>
 
                 <View>
