@@ -17,16 +17,16 @@ const BottomNavigation = () => {
     return (
         <View style={styles.bottomNavigationContainer}>
             <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='home-outline'></Ionicons>
+                <Ionicons style={styles.menuIcon} name='home'></Ionicons>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='cafe-outline'></Ionicons>
+                <Ionicons style={styles.menuIcon} name='cafe'></Ionicons>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='location-outline'></Ionicons>
+                <Ionicons style={styles.menuIcon} name='location'></Ionicons>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback>
-                <Ionicons style={styles.menuIcon} name='cart-outline'></Ionicons>
+                <Ionicons style={styles.menuIcon} name='cart'></Ionicons>
             </TouchableWithoutFeedback>
         </View>
     )
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         //height: 100, //Commented this out, because this was causing problems
         //top: '40%', //Commented this out, because this was causing problems
-        justifyContent: 'space-between'
+        //justifyContent: 'space-between'
     },
     menuIcon: {
         color: colors.text,
