@@ -35,8 +35,6 @@ const cartItems = '';
 
 return (
 <View style={styles.screen}>
-    
-    <Text>TEST</Text>
 
     <FlatList
         data={cartItems}
@@ -52,23 +50,27 @@ return (
         
     />
 
-<Text>TEST TEST</Text>
 
-    <View style={styles.summary}>
-        <Text style={styles.summaryText}>
-        Total:{' '}
-        <Text style={styles.amount}>${//cartTotalAmount.toFixed(2)
-        }
-        </Text>
-        </Text>
-        <Button
-        color={Colors.assessory}
-        title="Submit order"
-        //          disabled={cartItems.length === 0}
-        />
+
+    <View style={styles.surroundSummary}>
+        <View style={styles.summary}>
+            <Text style={styles.summaryText}>
+            Total:{' '}
+                <Text style={styles.amount}>${//cartTotalAmount.toFixed(2)
+                }
+                </Text>
+            </Text>
+        </View>
     </View>
+    
 
-    <Text>TEST TEST</Text>
+    <View style={styles.submitOrder}>
+            <Button
+            color={Colors.assessory}
+            title="Submit order"
+            //          disabled={cartItems.length === 0}
+            />
+    </View>
 </View>
 );
 };
@@ -124,8 +126,15 @@ summary: {
 summaryText: {
     fontSize: 18
 },
+surroundSummary: {
+    height: '90%'
+},
 amount: {
     color: Colors.primary
+},
+submitOrder: {
+    
+    alignItems: 'center'
 }
 });
 
