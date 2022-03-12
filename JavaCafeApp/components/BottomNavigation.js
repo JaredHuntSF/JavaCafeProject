@@ -39,8 +39,8 @@ const BottomNavigation = () => {
 const styles = StyleSheet.create({
     bottomNavigationContainer: {
         flexDirection: 'row',
-        height: 100,
-        top: '40%',
+        //height: 100, //Commented this out, because this was causing problems
+        //top: '40%', //Commented this out, because this was causing problems
         justifyContent: 'space-between'
     },
     menuIcon: {
