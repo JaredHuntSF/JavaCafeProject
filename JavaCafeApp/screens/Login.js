@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import colors from '../constants/colors';
 import { useState } from 'react';
 
 const testAlert = () => {
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: colors.primary
     },
     title: {
         fontSize: 48,
@@ -69,11 +70,14 @@ const styles = StyleSheet.create({
         color: '#ffffff'
     },
     body: {
-        color: '#949494',
+        paddingTop: 10,
+        paddingBottom: 10,
+        color: colors.text
     },
     btn: {
         color: "#d46313",
-    }
+    },
+
 
 
 });
