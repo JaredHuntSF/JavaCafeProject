@@ -10,14 +10,14 @@ import Allergies from '../screens/Allergies';
 import Login from '../screens/Login';
 
 const CafeAppNavigator = createStackNavigator({
-    Login: Login,
-    Allergies: Allergies,
+    //Login: Login,
+    //Allergies: Allergies,
     Checkout: Checkout,
     Menu: Menu
 },{
     defaultNavigationOptions: {
         headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? colors.primary : ''
+            backgroundColor: Platform.OS === 'android' ? colors.primary : 'black'
         },
         headerTintColor: Platform.OS === 'android' ? 'white' : colors.primary
     }
