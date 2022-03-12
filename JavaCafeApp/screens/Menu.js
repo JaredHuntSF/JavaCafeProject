@@ -1,6 +1,6 @@
 /**
   * Login: a place where user/employee can log into the Java Cafe App 
-  * @authors Teddy Grzywa
+  * @authors Teddy Grzywa, Jared Hunt
   * @version 1.0.0
   */
 
@@ -8,6 +8,8 @@ import React from 'react';
 import { StyleSheet, FlatList, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
 import colors from '../constants/colors';
 import { useSelector } from 'react-redux';
+import MenuItem from '../components/MenuItem';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 
 
@@ -16,13 +18,7 @@ const Menu = props => {
     const products = useSelector(state => state.products.availableProducts)
     return (
 
-        // <FlatList 
         
-        // data={products}
-        // keyExtractor={item => item.id}
-        // renderItem={itemData => <Text>{itemData.item.title}</Text>}
-
-        // />
 
         <View style={styles.container}>
             <View style={styles.filter}>
@@ -32,8 +28,29 @@ const Menu = props => {
                 <Button title='Pastries' />
             </View>
 
-            {/**Cold Drinks */}
+            <FlatList
+            data={products}
+            keyExtractor={item => item.id}
+            renderItem={itemData => (
+                <ProductItem
+                image={itemData.item.imageUrl}
+                title={itemData.item.title}
+                price={itemData.item.price}
+                onViewDetail={() => {
+                    props.navigation.navigate('ProductDetail', {
+                    productId: itemData.item.id,
+                    productTitle: itemData.item.title
+                    });
+                }}
+                onAddToCart={() => {
+                    dispatch(cartActions.addToCart(itemData.item));
+                }}
+                />
+            )}
+            />
+{/* 
             <ScrollView horizontal style={styles.subMenu}  color={colors.assessory} >
+                <MenuItem />
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/iced_coffee.jpg')} style={styles.subMenuImg} />
                     <Text >Iced Coffee</Text> 
@@ -57,7 +74,6 @@ const Menu = props => {
 
             </ScrollView >
 
-            {/**Hot Drinks */}
             <ScrollView horizontal style={styles.subMenu}>
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/coffee.jpg')} style={styles.subMenuImg} />
@@ -89,7 +105,6 @@ const Menu = props => {
                 </TouchableOpacity>
             </ScrollView >
 
-            {/**Pasteries */}
             <ScrollView horizontal style={styles.subMenu}>
                 <TouchableOpacity style={styles.subMenuItem}>
                     <Image source={require('../assets/cinn_bun.jpg')} style={styles.subMenuImg} />
@@ -115,7 +130,7 @@ const Menu = props => {
                     <Image source={require('../assets/choco_chip_cookie.jpg')} style={styles.subMenuImg} />
                     <Text>Chocolate Chip Cookie</Text>
                 </TouchableOpacity>
-            </ScrollView >
+            </ScrollView > */}
 
 
 
@@ -127,7 +142,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: colors.primary,
+
     },
 
     filter: {

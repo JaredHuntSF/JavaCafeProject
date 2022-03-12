@@ -4,45 +4,35 @@ View,
 Text,
 StyleSheet,
 TouchableOpacity,
-Platform
+Platform,
+Image
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import colors from '../constants/colors';
 
-const CartItem = props => {
+const MenuItem = props => {
 return (
-<View style={styles.cartItem}>
+<View>
     <TouchableOpacity style={styles.subMenuItem}>
-        <Image source={require('../assets/iced_coffee.jpg')} style={styles.subMenuImg} />
-        <Text >Iced Coffee</Text> 
+        <Image style={styles.subMenuImg} source={require('../assets/iced_coffee.jpg')} />
+        <Text style={styles.text}  >Iced Coffee</Text> 
     </TouchableOpacity>
 </View>
 );
 };
 
 const styles = StyleSheet.create({
-cartItem: {
-    padding: 10,
-    backgroundColor: 'white',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 20
-},
-    itemData: {
-    flexDirection: 'row',
-    alignItems: 'center'
-},
-    quantity: {
-    fontFamily: 'open-sans',
-    color: '#888',
-    fontSize: 16
-},
-    mainText: {
-    fontFamily: 'open-sans-bold',
-    fontSize: 16
-},
-    deleteButton: {
-    marginLeft: 20
-}
+menuItem: {
+    
+    },
+subMenuImg: {
+        width: 100,
+        height: 100,
+    },
+text: {
+        color: colors.text
+    }
+
 });
 
-export default CartItem;
+export default MenuItem;
