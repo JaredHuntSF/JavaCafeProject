@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { View, Text, FlatList, Button, StyleSheet, Platform } from 'react-native';
+import { View, Text, FlatList, Button, StyleSheet, Platform, TouchableOpacity} from 'react-native';
 import { useSelector } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
@@ -16,7 +16,8 @@ import BottomNavigation from '../components/BottomNavigation';
 
 import Colors from '../constants/colors';
 import CartItem from '../components/CartItem';
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import { backgroundColor, color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import colors from '../constants/colors';
 
 const Checkout = props => {
 const cartItems = '';
@@ -61,11 +62,12 @@ return (
     </View> 
 
     <View style={styles.submitOrder}>
-            <Button
-            color={Colors.assessory}
-            title="Submit order"
-            //          disabled={cartItems.length === 0}
-            />
+            <TouchableOpacity
+                style={styles.button}
+            //disabled={cartItems.length === 0}
+            >
+                <Text style={styles.buttonText}>Submit Order</Text>
+                </TouchableOpacity>
     </View>
     <BottomNavigation style={styles.bottomBar} /> 
 </View>
@@ -135,6 +137,15 @@ submitOrder: {
 },
 bottomBar: {
     flex: 1
+},
+button: {
+    backgroundColor: colors.assessory,
+    justifyContent: 'center',
+    padding: 10
+},
+buttonText: {
+    color: colors.text
+    
 }
 });
 
