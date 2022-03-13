@@ -16,7 +16,7 @@ import size from '../constants/size';
 const BottomNavigation = props => {
     return (
 
-        <View style={styles.bottomNavigationContainer}>
+        <View style={{ ...styles.bottomNavigationContainer, ...props.style }}>
             <TouchableWithoutFeedback onPress={() => {
                 props.navigation.navigate({ routeName: 'Home' });
             }}>
