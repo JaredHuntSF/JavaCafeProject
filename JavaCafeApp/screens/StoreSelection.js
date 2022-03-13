@@ -42,7 +42,7 @@ return (
             </Text>
         </TouchableOpacity>
         </View>
-    <BottomNavigation style={styles.bottomBar} /> 
+    <BottomNavigation navigation={props.navigation} /> 
 </View>
 )
 }

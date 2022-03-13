@@ -123,7 +123,7 @@ return (
                 <Text style={styles.buttonText}>Submit Order</Text>
                 </TouchableOpacity>
     </View>
-    <BottomNavigation style={styles.bottomBar} /> 
+    <BottomNavigation navigation={props.navigation} />
 </View>
 );
 };
