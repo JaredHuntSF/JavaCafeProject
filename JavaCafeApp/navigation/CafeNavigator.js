@@ -8,18 +8,18 @@ import Home from '../screens/Home';
 import AccountInfo from '../screens/AccountInformation';
 import Allergies from '../screens/Allergies';
 import Login from '../screens/Login';
-
-import StoreSelection from '../screens/StoreSelection'; //for when it's ready
+import StoreSelection from '../screens/StoreSelection';
 
 
 const CafeAppNavigator = createStackNavigator({
 
+    StoreSelection: StoreSelection,
     Home: Home,
     Menu: Menu,
     Checkout: Checkout,
     Login: Login,
     Allergies: Allergies,
-    //StoreSelection: StoreSelection,   when it's ready
+    //StoreSelection: StoreSelection,
 
 
 

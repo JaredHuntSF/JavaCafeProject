@@ -28,6 +28,7 @@ import Login from './screens/Login';
 import AccountInfo from './screens/AccountInformation';
 import Menu from './screens/Menu';
 import Checkout from './screens/Checkout';
+import StoreSelection from './screens/StoreSelection';
 
 
 const rootReducer = combineReducers({
