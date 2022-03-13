@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     bottomNavigationContainer: {
         flexDirection: 'row',
         width: '100%',
-        //position: 'absolute',
+        position: 'absolute',
         bottom: 5,
         //height: 100, //Commented this out, because this was causing problems
         //top: '40%', //Commented this out, because this was causing problems

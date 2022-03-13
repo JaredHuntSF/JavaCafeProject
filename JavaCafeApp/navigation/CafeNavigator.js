@@ -10,16 +10,16 @@ import Allergies from '../screens/Allergies';
 import Login from '../screens/Login';
 import StoreSelection from '../screens/StoreSelection';
 import PastOrders from '../screens/PastOrders';
-
+import Tip from '../screens/Tip';
 
 const CafeAppNavigator = createStackNavigator({
-
     Home: Home,
     Menu: Menu,
     Checkout: Checkout,
     Login: Login,
     Allergies: Allergies,
     StoreSelection: StoreSelection,
+    Tip: Tip,
 
 
 
