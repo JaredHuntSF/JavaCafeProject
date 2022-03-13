@@ -15,7 +15,7 @@ import BottomNavigation from "../components/BottomNavigation";
 import colors from "../constants/colors";
 import textSize from "../constants/size";
 
-const Home = () => {
+const Home = props => {
 
     const currentUser = useRef("Mike" + "!"); //Refactor Code: get value from db
 
@@ -88,14 +88,19 @@ const Home = () => {
 
                 </View>
             </Card>
-            <BottomNavigation />
+            {/**
+             * needed to pass custom component navigation prop in order to use;
+             * only non-imported components have access to navigation by default */}
+            <BottomNavigation navigation={props.navigation} />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: colors.primary
     },
     greeting: {
         textAlign: "center",
