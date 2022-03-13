@@ -1,5 +1,5 @@
 /**
-  * Login: a place where user/employee can log into the Java Cafe App 
+  * Menu: The menu screen for the application
   * @authors Teddy Grzywa, Jared Hunt, Mo Auguste
   * @version 1.0.0
   */
@@ -18,6 +18,9 @@ import BottomNavigation from '../components/BottomNavigation';
 
 const Menu = props => {
     const products = useSelector(state => state.products.availableProducts)
+    const hot = useSelector(state => state.products.hotProducts)
+    const cold = useSelector(state => state.products.coldProducts)
+    const pastries = useSelector(state => state.products.pastryProducts)
     return (
 
 
@@ -30,22 +33,32 @@ const Menu = props => {
                 <Button title='Pastries' />
             </View>
 
-            <FlatList
-                data={products}
-                keyExtractor={item => item.id}
-                renderItem={itemData =>
-                    <View>
-                        <Image style={styles.image} source={{ uri: itemData.item.imageUrl }}></Image>
-                        <Text style={styles.text}>{itemData.item.title}</Text>
+            <FlatList horizontal
+            data={products}
+            keyExtractor={item => item.id}
+            renderItem={itemData => 
+            <View style={styles.subMenuItem}>
+                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                <Text style={styles.text}>{itemData.item.title}</Text>
+            </View>}/>
+            <FlatList horizontal
+            data={cold}
+            keyExtractor={item => item.id}
+            renderItem={itemData => 
+            <View style={styles.subMenuItem}>
+                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                <Text style={styles.text}>{itemData.item.title}</Text>
+            </View>}/>
+            <FlatList horizontal
+            data={pastries}
+            keyExtractor={item => item.id}
+            renderItem={itemData => 
+            <View style={styles.subMenuItem}>
+                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                <Text style={styles.text}>{itemData.item.title}</Text>
+            </View>}/>
 
-                    </View>
-
-                }
-            />
-
-            {/**
-             *  For Bottom Navigation
-             *  <BottomNavigation navigation={props.navigation} /> */}
+            
 
             {/* 
             <ScrollView horizontal style={styles.subMenu}  color={colors.assessory} >
@@ -131,7 +144,7 @@ const Menu = props => {
                 </TouchableOpacity>
             </ScrollView > */}
 
-
+    <BottomNavigation navigation={props.navigation}/>
 
         </View>
     );
