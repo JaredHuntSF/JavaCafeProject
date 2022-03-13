@@ -8,8 +8,7 @@
 import React, { useRef, useState } from "react";
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Image, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";  //need to run npm install @expo/vector-icons to get this package
-
-import TopNavigation from "../components/TopNavigtion";
+import TopNavigation from "../components/TopNavigation";
 import Card from '../components/Card';
 import BottomNavigation from "../components/BottomNavigation";
 import colors from "../constants/colors";
