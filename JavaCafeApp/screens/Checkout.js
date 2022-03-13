@@ -40,20 +40,32 @@ const [isEnabled, setIsEnabled] = useState(false);
 const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 return (
 <View style={styles.screen}>
-        <FlatList
-        data={cartItems}
-        keyExtractor={item => item.productId}
-        renderItem={itemData => (
-            <CartItem
-                quantity={itemData.item.quantity}
-                title={itemData.item.productTitle}
-                amount={itemData.item.sum}
-                onRemove={() => {}}
-            />
-            )}
-            />
-        <View style={styles.body}>
-                <Text style={{color: 'white'}} >Order Now</Text>        
+        
+        <View style={styles.contentHolder}>
+            <FlatList
+            data={cartItems}
+            keyExtractor={item => item.productId}
+            renderItem={itemData => (
+                <CartItem
+                    quantity={itemData.item.quantity}
+                    title={itemData.item.productTitle}
+                    amount={itemData.item.sum}
+                    onRemove={() => {}}
+                />
+                )}
+                />
+            <View style={styles.body}>
+                    <Text style={{color: 'white'}} >Order Now</Text>        
+                    <Switch 
+                    trackColor={{ false: "#767577", true: Colors.assessory }}
+                    thumbColor={isEnabled ? Colors.text : Colors.header}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled} 
+                    />
+                </View>
+            <View style={styles.body}>
+                <Text style={{color: 'white'}} >Order Later</Text>        
                 <Switch 
                 trackColor={{ false: "#767577", true: Colors.assessory }}
                 thumbColor={isEnabled ? Colors.text : Colors.header}
@@ -62,68 +74,65 @@ return (
                 value={isEnabled} 
                 />
             </View>
-        <View style={styles.body}>
-            <Text style={{color: 'white'}} >Order Later</Text>        
-            <Switch 
-            trackColor={{ false: "#767577", true: Colors.assessory }}
-            thumbColor={isEnabled ? Colors.text : Colors.header}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
-            value={isEnabled} 
-            />
+            <View style={styles.body}>
+                    <Text style={{color: 'white'}} >Apply Points</Text>        
+                    <Switch 
+                    trackColor={{ false: "#767577", true: Colors.assessory }}
+                    thumbColor={isEnabled ? Colors.text : Colors.header}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled} 
+                    />
+            </View>
+            <View style={styles.summary}>
+                <Text style={styles.summaryText}>
+                Subtotal:{' '}
+                    <Text style={styles.text}>${//tips to be implemented
+                    }
+                    </Text>
+                </Text>
+                <Text style={styles.summaryText}>
+                Redeem:{' '}
+                    <Text style={styles.text}>-{//redeem to be implemented
+                    }
+                    </Text>
+                </Text>
+                <Text style={styles.summaryText}>
+                Tax:{' '}
+                    <Text style={styles.text}>${//tax to be implemented
+                    }
+                    </Text>
+                </Text>
+                <Text style={styles.summaryText}>
+                Tip:{' '}
+                    <Text style={styles.text}>${//tips to be implemented
+                    }
+                    </Text>
+                </Text>
+                <Text style={styles.summaryText}>
+                Total:{' '}
+                    <Text style={styles.text}>${//cartTotalAmount.toFixed(2)
+                    }
+                    </Text>
+                </Text>
+            </View>
+
+            <View style={styles.submitOrder}>
+                    <TouchableOpacity
+                        style={styles.button}
+                    //disabled={cartItems.length === 0}
+                    >
+                        <Text style={styles.buttonText}>Submit Order</Text>
+                        </TouchableOpacity>
+            </View>
         </View>
-        <View style={styles.body}>
-                <Text style={{color: 'white'}} >Apply Points</Text>        
-                <Switch 
-                trackColor={{ false: "#767577", true: Colors.assessory }}
-                thumbColor={isEnabled ? Colors.text : Colors.header}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled} 
-                />
-        </View>
-        <View style={styles.summary}>
-            <Text style={styles.summaryText}>
-            Subtotal:{' '}
-                <Text style={styles.text}>${//tips to be implemented
-                }
-                </Text>
-            </Text>
-            <Text style={styles.summaryText}>
-            Redeem:{' '}
-                <Text style={styles.text}>-{//redeem to be implemented
-                }
-                </Text>
-            </Text>
-            <Text style={styles.summaryText}>
-            Tax:{' '}
-                <Text style={styles.text}>${//tax to be implemented
-                }
-                </Text>
-            </Text>
-            <Text style={styles.summaryText}>
-            Tip:{' '}
-                <Text style={styles.text}>${//tips to be implemented
-                }
-                </Text>
-            </Text>
-            <Text style={styles.summaryText}>
-            Total:{' '}
-                <Text style={styles.text}>${//cartTotalAmount.toFixed(2)
-                }
-                </Text>
-            </Text>
+        
+        <View style={styles.bottomBar}>
+            <BottomNavigation navigation={props.navigation} />
         </View>
 
-    <View style={styles.submitOrder}>
-            <TouchableOpacity
-                style={styles.button}
-            //disabled={cartItems.length === 0}
-            >
-                <Text style={styles.buttonText}>Submit Order</Text>
-                </TouchableOpacity>
-    </View>
-    <BottomNavigation navigation={props.navigation} />
+
+    
 </View>
 );
 };
@@ -158,6 +167,14 @@ Checkout.navigationOptions = navData => {
 const styles = StyleSheet.create({
 screen: {
     //margin: 20, //Caused formatting issues
+    flex: 1,
+    backgroundColor: 'black',
+    width: '100%',
+    height: '100%'
+},
+screen: {
+    //margin: 20, //Caused formatting issues
+    flex: 1,
     backgroundColor: 'black',
     width: '100%',
     height: '100%'
@@ -192,18 +209,15 @@ summaryText: {
     fontSize: 18,
     color: 'white',
 },
-surroundSummary: {
-    flex: 8
-},
 amount: {
     color: Colors.primary
 },
 submitOrder: {
-    flex: 1,
+
     alignItems: 'center'
 },
 bottomBar: {
-    flex: 1
+    height: 100
 },
 button: {
     backgroundColor: colors.assessory,
@@ -212,7 +226,9 @@ button: {
 },
 buttonText: {
     color: colors.text
-    
+},
+contentHolder: {
+    flex: 1
 }
 });
 
