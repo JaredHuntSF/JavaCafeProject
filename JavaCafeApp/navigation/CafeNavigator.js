@@ -11,6 +11,8 @@ import Login from '../screens/Login';
 import StoreSelection from '../screens/StoreSelection';
 import PastOrders from '../screens/PastOrders';
 import Tip from '../screens/Tip';
+import ProductSelection from '../screens/ProductSelection';
+
 
 const CafeAppNavigator = createStackNavigator({
     Home: Home,
@@ -20,6 +22,7 @@ const CafeAppNavigator = createStackNavigator({
     Allergies: Allergies,
     StoreSelection: StoreSelection,
     Tip: Tip,
+    ProductSelection: ProductSelection,
 
 
 
