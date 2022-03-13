@@ -27,10 +27,18 @@ const Menu = props => {
 
         <View style={styles.container}>
             <View style={styles.filter}>
-                <Button title='Menu' />
-                <Button title='Hot Brews' />
-                <Button title='Cold Brews' />
-                <Button title='Pastries' />
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Menu</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Hot Brew</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Cold Brew</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Pastries</Text>
+                </TouchableOpacity>
             </View>
 
             <FlatList horizontal
@@ -186,6 +194,15 @@ const styles = StyleSheet.create({
     },
     text: {
         color: colors.text
+    },
+    button: {
+        backgroundColor: colors.primary,
+        justifyContent: 'center',
+        padding: 5
+    },
+    buttonText: {
+        color: colors.text,
+        fontSize: 20
     }
 
 });
