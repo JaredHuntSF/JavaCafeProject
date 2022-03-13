@@ -56,24 +56,22 @@ export default function App() {
     </Provider>
   );
 
-  
-<View style={styles.screen}>
-      {/** screens are commented out, to test other screens */}
-      {/** <Header />*/}
-      {/* <Home /> */}
-      {/* <AccountRegistration /> */}
-      {/**
+
+  <View style={styles.screen}>
+    {/**
        * uses user-created 'visible' prop to hide modal
        * uses user-created 'onClose' prop to pass function to external js file
-       */}
+       *
       <IndividualPastOrders visible={showOrder} onClose={closeButtonHandler} />
-      {/**
+  */}
+    {/**
        * Move to 'list_of_past_orders
-       */}
+       *
       <View style={{ marginTop: 200 }}>
         <Button title='Press for Order Details' onPress={() => setShowOrder(true)} />
       </View>
-    </View>
+*/}
+  </View>
 }
 
 const styles = StyleSheet.create({
