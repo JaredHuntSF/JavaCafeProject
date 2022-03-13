@@ -45,25 +45,32 @@ const Menu = props => {
             data={products}
             keyExtractor={item => item.id}
             renderItem={itemData => 
+            
             <View style={styles.subMenuItem}>
-                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                <Text style={styles.text}>{itemData.item.title}</Text>
+                <TouchableOpacity onPress={() => {props.navigation.navigate('ProductSelection', {productId: itemData.item.id, productTitle: itemData.item.title})}}>
+                    <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                    <Text style={styles.text}>{itemData.item.title}</Text>
+                </TouchableOpacity>
             </View>}/>
             <FlatList horizontal
             data={cold}
             keyExtractor={item => item.id}
             renderItem={itemData => 
             <View style={styles.subMenuItem}>
-                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                <Text style={styles.text}>{itemData.item.title}</Text>
+                <TouchableOpacity onPress={() => {props.navigation.navigate('ProductSelection', {productId: itemData.item.id, productTitle: itemData.item.title})}}>
+                    <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                    <Text style={styles.text}>{itemData.item.title}</Text>
+                </TouchableOpacity>
             </View>}/>
             <FlatList horizontal
             data={pastries}
             keyExtractor={item => item.id}
             renderItem={itemData => 
             <View style={styles.subMenuItem}>
-                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                <Text style={styles.text}>{itemData.item.title}</Text>
+                <TouchableOpacity onPress={() => {props.navigation.navigate('ProductSelection', {productId: itemData.item.id, productTitle: itemData.item.title})}}>
+                    <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
+                    <Text style={styles.text}>{itemData.item.title}</Text>
+                </TouchableOpacity>
             </View>}/>
 
             
