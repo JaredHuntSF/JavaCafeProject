@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { StyleSheet, FlatList, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
+import { StyleSheet, FlatList, Text, View, TouchableOpacity} from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import BottomNavigation from '../components/BottomNavigation';
