@@ -1,5 +1,5 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator} from "react-navigation-stack";
+import { createStackNavigator } from "react-navigation-stack";
 import { Platform } from 'react-native';
 import colors from '../constants/colors';
 import Menu from '../screens/Menu';
@@ -9,14 +9,21 @@ import AccountInfo from '../screens/AccountInformation';
 import Allergies from '../screens/Allergies';
 import Login from '../screens/Login';
 
+import StoreSelection from '../screens/StoreSelection'; //for when it's ready
+
+
 const CafeAppNavigator = createStackNavigator({
+
+    Home: Home,
     Menu: Menu,
     Checkout: Checkout,
     Login: Login,
     Allergies: Allergies,
-    
+    //StoreSelection: StoreSelection,   when it's ready
 
-},{
+
+
+}, {
     defaultNavigationOptions: {
         headerStyle: {
             backgroundColor: Platform.OS === 'android' ? colors.primary : 'black'
