@@ -7,30 +7,38 @@
  */
 
 import React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback,Text } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '../constants/colors';
 import size from '../constants/size';
 
 
-const BottomNavigation = () => {
+const BottomNavigation = props => {
     return (
-        
-            <View style={styles.bottomNavigationContainer}>
-                    <TouchableWithoutFeedback>
-                        <Ionicons style={styles.menuIcon} name='home'></Ionicons>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback>
-                        <Ionicons style={styles.menuIcon} name='cafe'></Ionicons>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback>
-                        <Ionicons style={styles.menuIcon} name='location'></Ionicons>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback>
-                        <Ionicons style={styles.menuIcon} name='cart'></Ionicons>
-                    </TouchableWithoutFeedback>
-            </View>
-            
+
+        <View style={styles.bottomNavigationContainer}>
+            <TouchableWithoutFeedback onPress={() => {
+                props.navigation.navigate({ routeName: 'Home' });
+            }}>
+                <Ionicons style={styles.menuIcon} name='home'></Ionicons>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => {
+                props.navigation.navigate({ routeName: 'Menu' });
+            }}>
+                <Ionicons style={styles.menuIcon} name='cafe'></Ionicons>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => {
+                props.navigation.navigate({ routeName: 'StoreLocation' })
+            }}>
+                <Ionicons style={styles.menuIcon} name='location'></Ionicons>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => {
+                props.navigation.navigate({ routeName: 'Checkout' })
+            }}>
+                <Ionicons style={styles.menuIcon} name='cart'></Ionicons>
+            </TouchableWithoutFeedback>
+        </View>
+
     )
 };
 
