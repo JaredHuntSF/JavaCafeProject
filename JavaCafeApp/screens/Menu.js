@@ -1,6 +1,6 @@
 /**
   * Login: a place where user/employee can log into the Java Cafe App 
-  * @authors Teddy Grzywa, Jared Hunt
+  * @authors Teddy Grzywa, Jared Hunt, Mo Auguste
   * @version 1.0.0
   */
 
@@ -11,6 +11,8 @@ import { useSelector } from 'react-redux';
 import MenuItem from '../components/MenuItem';
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
+import BottomNavigation from '../components/BottomNavigation';
+
 
 
 
@@ -18,7 +20,7 @@ const Menu = props => {
     const products = useSelector(state => state.products.availableProducts)
     return (
 
-        
+
 
         <View style={styles.container}>
             <View style={styles.filter}>
@@ -29,21 +31,23 @@ const Menu = props => {
             </View>
 
             <FlatList
-            data={products}
-            keyExtractor={item => item.id}
-            renderItem={itemData => 
-            <View>
-                <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                <Text style={styles.text}>{itemData.item.title}</Text>
-                
-            </View>
-            
-        
-        
-        
-        }
+                data={products}
+                keyExtractor={item => item.id}
+                renderItem={itemData =>
+                    <View>
+                        <Image style={styles.image} source={{ uri: itemData.item.imageUrl }}></Image>
+                        <Text style={styles.text}>{itemData.item.title}</Text>
+
+                    </View>
+
+                }
             />
-{/* 
+
+            {/**
+             *  For Bottom Navigation
+             *  <BottomNavigation navigation={props.navigation} /> */}
+
+            {/* 
             <ScrollView horizontal style={styles.subMenu}  color={colors.assessory} >
                 <MenuItem />
                 <TouchableOpacity style={styles.subMenuItem}>
@@ -129,7 +133,7 @@ const Menu = props => {
 
 
 
-         </View>
+        </View>
     );
 }
 
@@ -160,12 +164,12 @@ const styles = StyleSheet.create({
     },
     productName: {
         color: colors.text,
-        
+
     },
     image: {
         width: 100,
         height: 100,
-        
+
     },
     text: {
         color: colors.text
