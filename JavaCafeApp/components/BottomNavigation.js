@@ -28,7 +28,7 @@ const BottomNavigation = props => {
                 <Ionicons style={styles.menuIcon} name='cafe'></Ionicons>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback onPress={() => {
-                props.navigation.navigate({ routeName: 'StoreLocation' })
+                props.navigation.navigate({ routeName: 'StoreSelection' })
             }}>
                 <Ionicons style={styles.menuIcon} name='location'></Ionicons>
             </TouchableWithoutFeedback>
