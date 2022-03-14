@@ -42,21 +42,20 @@ return (
         
         <View style={styles.contentHolder}>
             
-            <View style={styles.body}>
-            <FlatList style={styles.contentHolder}
-            data={cartItems}
-            keyExtractor={item => item.productId}
-            renderItem={itemData => (
-                <CartItem
-                    quantity={itemData.item.quantity}
-                    title={itemData.item.productTitle}
-                    amount={itemData.item.sum}
-                    onRemove={() => {}}
-                />
-                )}
-                />
+            <View style={styles.bodyItems}>
+                <FlatList style={styles.contentHolder}
+                data={cartItems}
+                keyExtractor={item => item.productId}
+                renderItem={itemData => (
+                    <CartItem
+                        quantity={itemData.item.quantity}
+                        title={itemData.item.productTitle}
+                        amount={itemData.item.sum}
+                        onRemove={() => {}}
+                    />
+                    )}
+                    />
             </View>
-
             <View style={styles.body}>
                     <Text style={{color: 'white'}} >Order Now</Text>        
                     <Switch 
@@ -188,6 +187,14 @@ body: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end'
+},
+bodyItems: {
+    margin: 4,
+    padding: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    height: 215
 },
 summary: {
     flexDirection: 'column',
