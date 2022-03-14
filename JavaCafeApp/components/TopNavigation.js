@@ -12,14 +12,18 @@ import { Ionicons } from '@expo/vector-icons';
 import colors from '../constants/colors';
 import size from '../constants/size';
 
-const TopNavigation = () => {
+const TopNavigation = props => {
     return (
         <View style={styles.topNavigationContainer}>
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => {
+                props.navigation.navigate({ routeName: 'StoreSelection' });
+            }}>
                 <Ionicons style={styles.menuIcon} name='menu-sharp'></Ionicons>
             </TouchableWithoutFeedback>
             <View style={styles.accountIconContainer}>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => {
+                props.navigation.navigate({ routeName: 'AccountInfo' });
+            }}>
                     <Ionicons style={styles.accountIcon} name='person-sharp'></Ionicons>
                 </TouchableWithoutFeedback>
             </View>
