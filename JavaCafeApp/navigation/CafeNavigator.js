@@ -13,6 +13,7 @@ import PastOrders from '../screens/PastOrders';
 import Tip from '../screens/Tip';
 import ProductSelection from '../screens/ProductSelection';
 import AccountRegistration from '../screens/AccountRegistration';
+import ForgotPassword from '../screens/ForgotPassword';
 
 
 const CafeAppNavigator = createStackNavigator({
@@ -25,7 +26,8 @@ const CafeAppNavigator = createStackNavigator({
     StoreSelection: StoreSelection,
     Tip: Tip,
     ProductSelection: ProductSelection,
-    AccountInfo: AccountInfo
+    AccountInfo: AccountInfo,
+    ForgotPassword: ForgotPassword
 
 
 
