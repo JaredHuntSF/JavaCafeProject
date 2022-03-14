@@ -18,7 +18,7 @@ const testAlert = () => {
 
 const Login = props => {
     return(
-        <View style={styles.container}>
+        <View style={styles.container} navigation={props.navigation}>
 
             <View>
                 <Text style={styles.title}>Java Café</Text>
@@ -44,7 +44,7 @@ const Login = props => {
             
             
                 <View>
-                    <Button color='#FF850F' title="Log In" onPress={testAlert} />
+                    <Button color='#FF850F' title="Log In" onPress={() => {props.navigation.navigate({ routeName: 'Home' })}} />
                 </View>
 
                 <View>

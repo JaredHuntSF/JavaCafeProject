@@ -18,12 +18,13 @@ import {
     ScrollView,
     Alert
 } from 'react-native';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 import colors from '../constants/colors';
 import size from '../constants/size';
 
 
-const AccountRegistration = () => {
+const AccountRegistration = props => {
 
     /**
      * used for retrieving user input
@@ -148,7 +149,7 @@ const AccountRegistration = () => {
     });
 
     return (
-        <TouchableWithoutFeedback onPress={() => {
+        <TouchableWithoutFeedback navigation={props.navigation} onPress={() => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen}>
@@ -161,7 +162,7 @@ const AccountRegistration = () => {
                         </View>
                         <TextInput style={styles.input}
                             placeholder="Enter your name"
-                            placeholderTextColor={colors.text}
+                            placeholderTextColor={colors.secondary}
                             textContentType="name"
                             blurOnSubmit={true}
                             maxLength={20}
@@ -173,7 +174,7 @@ const AccountRegistration = () => {
                         </View>
                         <TextInput style={styles.input}
                             placeholder="Enter your email"
-                            placeholderTextColor={colors.text}
+                            placeholderTextColor={colors.secondary}
                             textContentType="emailAddress"
                             blurOnSubmit={true}
                             maxLength={50}
@@ -183,7 +184,7 @@ const AccountRegistration = () => {
                         <Text style={styles.subHeader}>Password</Text>
                         <TextInput style={styles.input}
                             placeholder="Enter a password"
-                            placeholderTextColor={colors.text}
+                            placeholderTextColor={colors.secondary}
                             textContentType="password"
                             blurOnSubmit={true}
                             maxLength={20}
@@ -196,7 +197,7 @@ const AccountRegistration = () => {
                         </View>
                         <TextInput style={styles.input}
                             placeholder="Enter your password"
-                            placeholderTextColor={colors.text}
+                            placeholderTextColor={colors.secondary}
                             textContentType="password"
                             blurOnSubmit={true}
                             maxLength={20}
@@ -209,16 +210,19 @@ const AccountRegistration = () => {
                         </View>
                         <TextInput style={styles.input}
                             placeholder="(XXX) XXX - XXXX"
-                            placeholderTextColor={colors.text}
+                            placeholderTextColor={colors.secondary}
                             textContentType="telephoneNumber"
                             blurOnSubmit={true}
                             maxLength={10}
                             keyboardType="numeric"
                             onChangeText={phoneHandler}
                             value={phone} />
-                        <View style={styles.button}>
-                            <Button title="Sign Up" color={colors.secondary} onPress={submitHandler} />
-                        </View>
+                        <View style={styles.button} >
+                            {/* Making onPress direct to login screen as placeholder for application, onPress={submitHandler} */}
+                            <Button title="Sign Up" color={colors.assessory} onPress={() => {
+                            props.navigation.navigate({ routeName: 'Login' })
+                            }} /> 
+                        </View> 
                     </View>
                 </ScrollView>
             </View>
@@ -231,31 +235,34 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignItems: 'center',
-        marginTop: 15
+        backgroundColor: colors.primary
     },
     header: {
-        fontSize: size.headingFontSize,
-        color: colors.text
+        marginVertical: 10,
+        fontSize: 30,
+        color: colors.text,
     },
     body: {
         marginTop: 25
     },
     subHeader: {
-        fontSize: size.subHeadingFontSize,
-        color: colors.text
+        fontSize: 22,
+        color: colors.header
     },
     input: {
         color: colors.text,
-        marginVertical: 5,
+        marginVertical: 3,
         fontSize: size.paragraphFontSize,
         height: 50,
-        borderBottomColor: colors.text,
+        borderBottomColor: colors.secondary,
         width: 300,
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: colors.primary,
+        marginBottom: 10
     },
     button: {
         width: 80,
-        color: colors.secondary,
+        color: colors.assessory,
         alignSelf: 'center',
         marginTop: 25
     },
