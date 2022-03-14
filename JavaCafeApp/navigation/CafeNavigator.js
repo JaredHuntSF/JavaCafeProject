@@ -23,6 +23,7 @@ const CafeAppNavigator = createStackNavigator({
     StoreSelection: StoreSelection,
     Tip: Tip,
     ProductSelection: ProductSelection,
+    AccountInfo: AccountInfo
 
 
 
