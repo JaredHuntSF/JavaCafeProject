@@ -20,21 +20,20 @@ import { backgroundColor, color } from 'react-native/Libraries/Components/View/R
 import colors from '../constants/colors';
 
 const Checkout = props => {
-const cartItems = '';
-// const cartTotalAmount = useSelector(state => state.cart.totalAmount);
-// const cartItems = useSelector(state => {
-//     const transformedCartItems = [];
-//     for (const key in state.cart.items) {
-//     transformedCartItems.push({
-//         productId: key,
-//         productTitle: state.cart.items[key].productTitle,
-//         productPrice: state.cart.items[key].productPrice,
-//         quantity: state.cart.items[key].quantity,
-//         sum: state.cart.items[key].sum
-//     });
-//     }
-//     return transformedCartItems;
-// });
+const cartTotalAmount = useSelector(state => state.cart.totalAmount);
+const cartItems = useSelector(state => {
+    const transformedCartItems = [];
+    for (const key in state.cart.items) {
+    transformedCartItems.push({
+        productId: key,
+        productTitle: state.cart.items[key].productTitle,
+        productPrice: state.cart.items[key].productPrice,
+        quantity: state.cart.items[key].quantity,
+        sum: state.cart.items[key].sum
+    });
+    }
+    return transformedCartItems;
+});
 
 const [isEnabled, setIsEnabled] = useState(false);
 const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -42,7 +41,9 @@ return (
 <View style={styles.screen}>
         
         <View style={styles.contentHolder}>
-            <FlatList
+            
+            <View style={styles.body}>
+            <FlatList style={styles.contentHolder}
             data={cartItems}
             keyExtractor={item => item.productId}
             renderItem={itemData => (
@@ -54,6 +55,8 @@ return (
                 />
                 )}
                 />
+            </View>
+
             <View style={styles.body}>
                     <Text style={{color: 'white'}} >Order Now</Text>        
                     <Switch 
@@ -110,8 +113,8 @@ return (
                     </Text>
                 </Text>
                 <Text style={styles.summaryText}>
-                Total:{' '}
-                    <Text style={styles.text}>${//cartTotalAmount.toFixed(2)
+                
+                    <Text style={styles.text}>Total: ${cartTotalAmount.toFixed(2)
                     }
                     </Text>
                 </Text>
@@ -191,7 +194,7 @@ summary: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     marginBottom: 20,
-    margin: 240,
+    //margin: 240,
     padding: 10,
     width: '30%',
     shadowColor: 'black',

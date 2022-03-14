@@ -13,27 +13,28 @@ export default (state = initialState, action) => {
             const prodPrice = addedProduct.price;
             const prodTitle = addedProduct.title;
 
+            let cartItemHandling; //Handles cart items based on whether or not they are new items being added or an item already in the cart is being further added
+
             if (state.items[addedProduct.id]) {
                 //Item is already in cart
-                const updatedCartItem = new CartItem(
+                cartItemHandling = new CartItem(
                     state.items[addedProduct.id].quantity + 1,
                     prodPrice,
                     prodTitle,
                     state.items[addedProduct.id].sum + prodPrice
                 );
-                return {
-                    ...state, //return a copy of state
-                    items: { ...state.items, [addedProduct.id]: updatedCartItem },
-                    totalAmount: state.totalAmount + prodPrice
-                }
+                
             } else {
-                const newCartItem = new CartItem(1, prodPrice, prodTitle, prodPrice)
-                return {
-                    ...state, //return a copy of state
-                    items: {...state.items, [addedProduct.id]: newCartItem },
-                    totalAmount: state.totalAmount + prodPrice
-                }
+                cartItemHandling = new CartItem(1, prodPrice, prodTitle, prodPrice)
+                
+            }
+            return {
+                ...state, //return a copy of state
+                items: { ...state.items, [addedProduct.id]: cartItemHandling },
+                totalAmount: state.totalAmount + prodPrice
             }
     }
     return state;
 }
+
+

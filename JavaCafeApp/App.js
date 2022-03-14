@@ -14,6 +14,7 @@ import 'react-native-gesture-handler';
 import { createStore, combineReducers } from 'redux'; //create a root reducer to combine multiple reducers into a single one
 import { Provider } from 'react-redux'; //Provider app is wrapped around our application to, well, provide something
 import productsReducer from './store/reducers/products';
+import cartReducer from './store/reducers/cart'
 import CafeNavigator from './navigation/CafeNavigator';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -32,7 +33,8 @@ import StoreSelection from './screens/StoreSelection';
 
 
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  cart: cartReducer
 })
 
 const store = createStore(rootReducer) //Takes rootReducer as a single argument
