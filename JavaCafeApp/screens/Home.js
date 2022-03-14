@@ -51,7 +51,7 @@ const Home = props => {
 
     return (
         <View style={styles.screen}>
-            <TopNavigation />
+            <TopNavigation navigation={props.navigation}/>
             <Card style={styles.greetingContainer}>
                 {/**Refactor Code: Insert greeting*/}
                 <Text style={styles.greeting}>Good Morning, {currentUser.current}</Text>
