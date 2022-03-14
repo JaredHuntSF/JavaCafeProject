@@ -12,13 +12,15 @@ import StoreSelection from '../screens/StoreSelection';
 import PastOrders from '../screens/PastOrders';
 import Tip from '../screens/Tip';
 import ProductSelection from '../screens/ProductSelection';
+import AccountRegistration from '../screens/AccountRegistration';
 
 
 const CafeAppNavigator = createStackNavigator({
+    AccountRegistration: AccountRegistration,
+    Login: Login,
     Home: Home,
     Menu: Menu,
     Checkout: Checkout,
-    Login: Login,
     Allergies: Allergies,
     StoreSelection: StoreSelection,
     Tip: Tip,
