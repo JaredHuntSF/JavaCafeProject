@@ -86,6 +86,7 @@ return (
                     value={isEnabled} 
                     />
             </View>
+            <View style={styles.body}>
             <View style={styles.summary}>
                 <Text style={styles.summaryText}>
                 Subtotal:{' '}
@@ -117,7 +118,9 @@ return (
                     }
                     </Text>
                 </Text>
+            </View>    
             </View>
+            
 
             <View style={styles.submitOrder}>
                     <TouchableOpacity
