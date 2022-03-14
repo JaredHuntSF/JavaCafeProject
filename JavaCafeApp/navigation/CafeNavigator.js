@@ -17,8 +17,8 @@ import ForgotPassword from '../screens/ForgotPassword';
 
 
 const CafeAppNavigator = createStackNavigator({
-    AccountRegistration: AccountRegistration,
     Login: Login,
+    AccountRegistration: AccountRegistration,
     Home: Home,
     Menu: Menu,
     Checkout: Checkout,
