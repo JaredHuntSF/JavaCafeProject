@@ -36,7 +36,11 @@ cartItem: {
     backgroundColor: colors.primary,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: colors.header
+    
 },
     itemData: {
     flexDirection: 'row',

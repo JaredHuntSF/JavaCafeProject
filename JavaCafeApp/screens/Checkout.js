@@ -43,7 +43,7 @@ return (
         <View style={styles.contentHolder}>
             
             <View style={styles.bodyItems}>
-                <FlatList style={styles.contentHolder}
+                <FlatList style={styles.flatlist}
                 data={cartItems}
                 keyExtractor={item => item.productId}
                 renderItem={itemData => (
@@ -239,6 +239,9 @@ buttonText: {
 },
 contentHolder: {
     flex: 1
+},
+flatlist: {
+
 }
 });
 
