@@ -11,6 +11,7 @@ import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '../constants/colors';
 import size from '../constants/size';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 
 const BottomNavigation = props => {
@@ -28,7 +29,7 @@ const BottomNavigation = props => {
                 <Ionicons style={styles.menuIcon} name='cafe'></Ionicons>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback onPress={() => {
-                props.navigation.navigate({ routeName: 'StoreLocation' })
+                props.navigation.navigate({ routeName: 'StoreSelection' })
             }}>
                 <Ionicons style={styles.menuIcon} name='location'></Ionicons>
             </TouchableWithoutFeedback>
@@ -56,7 +57,8 @@ const styles = StyleSheet.create({
         //height: 100, //Commented this out, because this was causing problems
         //top: '40%', //Commented this out, because this was causing problems
         justifyContent: 'space-between',
-        padding: 20
+        padding: 10,
+        backgroundColor: colors.primary,
     },
     menuIcon: {
         color: colors.text,

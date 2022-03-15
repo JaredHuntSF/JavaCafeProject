@@ -6,7 +6,7 @@
 
 
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import colors from '../constants/colors';
 import { useState } from 'react';
 
@@ -18,37 +18,41 @@ const testAlert = () => {
 
 const Login = props => {
     return(
-        <View style={styles.container}>
+        <View style={styles.container} navigation={props.navigation}>
 
             <View>
                 <Text style={styles.title}>Java Café</Text>
             </View>
 
             <View style={styles.body}>
-                <View>
+                <View style={styles.loginelement}>
                 <Text style={styles.body}>Email</Text>        
                 <TextInput style={styles.textinput}
                     placeholder="Enter your email address" />
                 </View>
 
 
-                <View>
+                <View style={styles.loginelement}>
                     <Text style={styles.body}>Password</Text>
                     <TextInput  style={styles.textinput}
                     secureTextEntry={true} placeholder="Enter your password"/>
                 </View>
 
-                <View>
-                <Text style={styles.body}>Don't have an account? Register Now</Text>    
+                <View style={styles.interactabletext}>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate({ routeName: 'AccountRegistration' })}}>
+                        <Text style={styles.body}>Don't have an account? Register Now</Text>  
+                    </TouchableOpacity>
                 </View> 
             
             
                 <View>
-                    <Button color='#FF850F' title="Log In" onPress={testAlert} />
+                    <Button color='#FF850F' title="Log In" onPress={() => {props.navigation.navigate({ routeName: 'Home' })}} />
                 </View>
 
-                <View>
-                    <Text style={styles.body}>Forgot your password?</Text>
+                <View style={styles.interactabletext}>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate({ routeName: 'ForgotPassword' })}}>
+                        <Text style={styles.body}>Forgot your password?</Text>
+                    </TouchableOpacity>
                 </View>
             </View>     
         </View>
@@ -62,17 +66,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colors.primary
+        backgroundColor: colors.primary,
+        width: '100%'
     },
     title: {
         fontSize: 48,
         fontWeight: "bold",
-        color: '#ffffff'
+        color: '#ffffff',
+        marginBottom: 40
     },
     body: {
         paddingTop: 10,
         paddingBottom: 10,
-        color: colors.text
+        color: colors.header,
+        width: '80%'
     },
     btn: {
         color: '#ffffff',
@@ -80,7 +87,16 @@ const styles = StyleSheet.create({
         borderWidth: 5
     },
     textinput: {
-        color: 'white'
+        color: 'white',
+
+    },
+    loginelement: {
+        borderBottomColor: colors.secondary,
+        borderWidth: 2,
+        marginBottom: 20
+    },
+    interactabletext: {
+        marginVertical: 15
     }
 
 

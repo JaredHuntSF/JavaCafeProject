@@ -1,51 +1,88 @@
 /**
  * Login: a place where user/employee can log into the Java Cafe App 
- * @authors Teddy Grzywa
+ * @authors Teddy Grzywa, Blake Ardizzone
  * @version 1.0.0
  */
 
 import React from 'react';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
 import { StyleSheet, Text, View, } from 'react-native';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
-
+/* Code to be refractored to take user information from the database */
 const AccountInfo = props => {
     return(
         <View style={styles.container}>
 
             <View style={styles.body}>
-                <Text>Profile</Text>        
-                <Text>Mike</Text>
+                <Text style={styles.headerText}>Profile</Text>        
+                <Text style={styles.bodyText}>Mike</Text>
             </View>
 
 
-            <View>
-                <Text>Payment</Text>
-                <Text>Manage all payment methods here</Text>
+            <View style={styles.body}>
+                <Text style={styles.headerText}>Payment</Text>
+                <Text style={styles.bodyText}>Manage all payment methods here</Text>
             </View>
 
-            <View>
-                <Text>Device Notifications</Text>
-                <Text>Push and SMS</Text>   
+            <View style={styles.body}>
+                <Text style={styles.headerText}>Device Notifications</Text>
+                <Text style={styles.bodyText}>Push {'&'} SMS</Text>   
             </View> 
 
-            <View>
-                <Text>Loyalty Points</Text>
-                <Text>xx.xx</Text>  
+            <View style={styles.body}>
+                <Text style={styles.headerText}>Loyalty Points</Text>
+                <Text style={styles.bodyText}>xx.xx</Text>  
             </View>
 
-            <View>
-                <Text>Call Your Selected Store</Text>
-                <Text>(352)555-1004</Text>     
+            <View style={styles.body}>
+                <Text style={styles.headerText}>Call Your Selected Store</Text>
+                <Text style={styles.bodyText}>(352)555-1004</Text>     
             </View> 
         </View>
     );
 }
-
+AccountInfo.navigationOptions = navData => {
+    return {
+    headerTitle: 'Account Settings',
+    headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} > 
+    <Item 
+    title='Menu' 
+    iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'} 
+    onPress={() => {
+        navData.navigation.navigate('Menu');
+    }} />
+    </HeaderButtons>
+    }
+    
+};
 const styles = StyleSheet.create({container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-    
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'black',
+},
+body: {
+    margin: 4,
+    padding: 15,
+    flexDirection: 'column',
+    //alignItems: 'center',
+    justifyContent: 'flex-start',
+    borderBottomColor: '#C1C1C1',
+    borderBottomWidth: 1,
+    borderRadius: 1,
+},
+headerText: {
+    fontSize: 16,
+    color: 'white',
+    padding: 5,
+},
+bodyText: {
+    fontSize: 14,
+    color: 'white',
+    flexDirection: 'column',
+    padding: 5,
 }
 });
 

@@ -1,5 +1,5 @@
 /**
- * Store Selection: The customer can select the store location on this screen
+ * Tip: The customer can select the tip amount for their order
  * @authors Blake Ardizzone
  * @version 1.0.0
  */
@@ -14,34 +14,36 @@ const StoreSelection = props => {
 return (
 <View style={styles.screen}>
     <Text style={styles.text}>
-            Select your store:
+            Would you like to tip for your service?
     </Text>
         <View style={styles.block}>
             <TouchableOpacity>
-            <Text style={styles.stores}>
-                1234 Museum Rd{"\n"}
-                0.2 Miles - Open Now - 4PM
+            <Text style={styles.tip}>
+                15%
             </Text>
             </TouchableOpacity>
             <TouchableOpacity>
-            <Text style={styles.stores}>
-                1234 SW Archer{"\n"}
-                0.4 Miles - Open Now - 4PM
+            <Text style={styles.tip}>
+                18%
             </Text>
             </TouchableOpacity>
             <TouchableOpacity>
-            <Text style={styles.stores}>
-                1234 SW Celebration Point{"\n"}
-                1.5 Miles - Open Now - 4PM
+            <Text style={styles.tip}>
+                20%
             </Text>
             </TouchableOpacity>
             <TouchableOpacity>
-            <Text style={styles.stores}>
-                1234 SW Newberry Rd{"\n"}
-                3.2 Miles - Open Now - 4PM
+            <Text style={styles.tip}>
+                Custom
             </Text>
-        </TouchableOpacity>
+            </TouchableOpacity>
         </View>
+            <Text style={styles.tip}>
+                Subtotal: XX.XX
+            </Text>
+            <Text style={styles.tip}>
+                Tip: XX.XX
+            </Text>
     <BottomNavigation navigation={props.navigation} /> 
 </View>
 )
@@ -49,7 +51,7 @@ return (
 
 StoreSelection.navigationOptions = navData => {
     return {
-    headerTitle: 'Store Selection',
+    headerTitle: 'Tip',
     headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} > 
     <Item 
     title='Menu' 
@@ -76,15 +78,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#5F5C61',
         padding: 10,
         margin: 30,
+        flexDirection: 'row',
     },
     text: {
         color: 'white',
         fontWeight: "bold",
-        fontSize: 20,
-        padding: 10,
-        paddingTop: 10,
-        paddingBottom: 0,
-        margin: 20,
+    },
+    tip: {
+        color: 'white',
+        fontWeight: "bold",
     },
     stores: {
         color: 'white',
@@ -94,4 +96,3 @@ const styles = StyleSheet.create({
     }
     });
 export default StoreSelection;
-

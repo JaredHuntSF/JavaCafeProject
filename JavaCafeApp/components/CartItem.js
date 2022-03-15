@@ -7,6 +7,7 @@ TouchableOpacity,
 Platform
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import colors from '../constants/colors';
 
 const CartItem = props => {
 return (
@@ -21,7 +22,7 @@ return (
         <Ionicons
         name={Platform.OS === 'android' ? 'md-trash' : 'ios-trash'}
         size={23}
-        color="red"
+        color={colors.assessory}
         />
     </TouchableOpacity>
     </View>
@@ -32,23 +33,25 @@ return (
 const styles = StyleSheet.create({
 cartItem: {
     padding: 10,
-    backgroundColor: 'white',
+    backgroundColor: colors.primary,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    borderBottomWidth: 1,
+    borderColor: colors.header
+    
 },
     itemData: {
     flexDirection: 'row',
     alignItems: 'center'
 },
     quantity: {
-    fontFamily: 'open-sans',
     color: '#888',
     fontSize: 16
 },
     mainText: {
-    fontFamily: 'open-sans-bold',
-    fontSize: 16
+    fontSize: 16,
+    color: colors.text
 },
     deleteButton: {
     marginLeft: 20
