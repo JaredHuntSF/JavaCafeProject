@@ -51,7 +51,7 @@ const Home = props => {
 
     return (
         <View style={styles.screen}>
-            <TopNavigation navigation={props.navigation}/>
+            <TopNavigation navigation={props.navigation} />
             <Card style={styles.greetingContainer}>
                 {/**Refactor Code: Insert greeting*/}
                 <Text style={styles.greeting}>Good Morning, {currentUser.current}</Text>
@@ -89,8 +89,8 @@ const Home = props => {
             </Card>
             {/**
              * needed to pass custom component navigation prop in order to use;
-             * only non-imported components have access to navigation by default */}
-            <BottomNavigation navigation={props.navigation} />
+             * only non-imported components have access to navigation by default *
+                    <BottomNavigation navigation={props.navigation} /> */}
         </View>
     )
 }
