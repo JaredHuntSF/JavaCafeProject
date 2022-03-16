@@ -104,10 +104,10 @@ const styles = StyleSheet.create({
     greeting: {
         textAlign: "center",
         fontSize: textSize.headingFontSize,
-        color: '#fff'
+        color: '#fff',
     },
     greetingContainer: {
-
+        marginVertical: 30
     },
     receiptRecapTitle: {
         textAlign: "center",
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
         color: colors.text
     },
     receiptRecapContainer: {
-        marginTop: 50,
         maxHeight: 200
     },
     listItems: {
@@ -124,7 +123,8 @@ const styles = StyleSheet.create({
         marginVertical: 2
     },
     recentOrdersContainer: {
-        marginTop: 20
+        position: "absolute",
+        bottom: 25
     },
     recentOrdersTitle: {
         fontSize: textSize.subHeadingFontSize,
@@ -137,7 +137,6 @@ const styles = StyleSheet.create({
     },
     backButton: {
         fontSize: 50,
-
         marginVertical: 15
     },
     forwardButton: {
