@@ -23,20 +23,39 @@ import { Ionicons } from '@expo/vector-icons';
  * up here
  */
 const CafeAppNavigator = createStackNavigator({
-    Login: Login,
-    AccountRegistration: AccountRegistration,
-    Home: Home,
+    //Login: Login,
+    //AccountRegistration: AccountRegistration,
+    //Home: Home,
     Menu: Menu,
-    Checkout: Checkout,
+    //Checkout: Checkout,
     Allergies: Allergies,
-    StoreSelection: StoreSelection,
+    //StoreSelection: StoreSelection,
     Tip: Tip,
     ProductSelection: ProductSelection,
     AccountInfo: AccountInfo,
     ForgotPassword: ForgotPassword
+}, {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? colors.primary : 'black'
+        },
+        headerTintColor: Platform.OS === 'android' ? 'white' : 'white'
+    }
+});
 
+const storeSelectionStack = createStackNavigator({
+    StoreSelection: StoreSelection
+}, {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? colors.primary : 'black'
+        },
+        headerTintColor: Platform.OS === 'android' ? 'white' : 'white'
+    }
+});
 
-
+const checkoutStack = createStackNavigator({
+    Checkout: Checkout
 }, {
     defaultNavigationOptions: {
         headerStyle: {
@@ -55,21 +74,21 @@ const bottomNavigation = createBottomTabNavigator({
         }
     },
     Menu: {
-        screen: Menu, navigationOptions: {
+        screen: CafeAppNavigator, navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='cafe-sharp' size={25} color={tabInfo.tintColor} />
             }
         }
     },
     StoreSelection: {
-        screen: StoreSelection, navigationOptions: {
+        screen: storeSelectionStack, navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='location-sharp' size={25} color={tabInfo.tintColor} />
             }
         }
     },
     Checkout: {
-        screen: Checkout, navigationOptions: {
+        screen: checkoutStack, navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='cart-sharp' size={25} color={tabInfo.tintColor} />
             }
