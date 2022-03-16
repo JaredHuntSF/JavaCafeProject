@@ -20,7 +20,7 @@ import { Ionicons } from '@expo/vector-icons';
 /**
  * wonder if we shift all of the screens with icons down to tab bar
  * and keep the menu sceeen (being it has multiple clickable links)
- * up here
+ * up here; is this what we want?
  */
 const CafeAppNavigator = createStackNavigator({
     //Login: Login,
@@ -43,6 +43,9 @@ const CafeAppNavigator = createStackNavigator({
     }
 });
 
+/**
+ * Delete this to return things to before
+ */
 const storeSelectionStack = createStackNavigator({
     StoreSelection: StoreSelection
 }, {
@@ -54,6 +57,9 @@ const storeSelectionStack = createStackNavigator({
     }
 });
 
+/**
+ * Delete this to return things to before
+ */
 const checkoutStack = createStackNavigator({
     Checkout: Checkout
 }, {
@@ -65,6 +71,9 @@ const checkoutStack = createStackNavigator({
     }
 });
 
+/**
+ * Delete this to return things to before
+ */
 const bottomNavigation = createBottomTabNavigator({
     Home: {
         screen: Home, navigationOptions: {
