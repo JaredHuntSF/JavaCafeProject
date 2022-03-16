@@ -1,4 +1,4 @@
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
 import { Platform } from 'react-native';
 import colors from '../constants/colors';
@@ -40,4 +40,11 @@ const CafeAppNavigator = createStackNavigator({
     }
 });
 
-export default createAppContainer(CafeAppNavigator)
+const bottomNavigation = createBottomTabNavigator({
+    Home: Home,
+    Menu: Menu,
+    StoreSelection: StoreSelection,
+    Checkout: Checkout
+});
+
+export default createAppContainer(bottomNavigation) //**pass CafeAppNavigator instead to return things to before**
