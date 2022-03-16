@@ -17,6 +17,11 @@ import ForgotPassword from '../screens/ForgotPassword';
 import { Ionicons } from '@expo/vector-icons';
 
 
+/**
+ * wonder if we shift all of the screens with icons down to tab bar
+ * and keep the menu sceeen (being it has multiple clickable links)
+ * up here
+ */
 const CafeAppNavigator = createStackNavigator({
     Login: Login,
     AccountRegistration: AccountRegistration,
