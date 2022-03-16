@@ -14,6 +14,7 @@ import Tip from '../screens/Tip';
 import ProductSelection from '../screens/ProductSelection';
 import AccountRegistration from '../screens/AccountRegistration';
 import ForgotPassword from '../screens/ForgotPassword';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const CafeAppNavigator = createStackNavigator({
@@ -41,10 +42,42 @@ const CafeAppNavigator = createStackNavigator({
 });
 
 const bottomNavigation = createBottomTabNavigator({
-    Home: Home,
-    Menu: Menu,
-    StoreSelection: StoreSelection,
-    Checkout: Checkout
+    Home: {
+        screen: Home, navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name='home-sharp' size={25} color={tabInfo.tintColor} />
+            }
+        }
+    },
+    Menu: {
+        screen: Menu, navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name='cafe-sharp' size={25} color={tabInfo.tintColor} />
+            }
+        }
+    },
+    StoreSelection: {
+        screen: StoreSelection, navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name='location-sharp' size={25} color={tabInfo.tintColor} />
+            }
+        }
+    },
+    Checkout: {
+        screen: Checkout, navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name='cart-sharp' size={25} color={tabInfo.tintColor} />
+            }
+        }
+    },
+}, {
+    tabBarOptions: {
+        activeTintColor: colors.secondary,
+        inactiveTintColor: colors.text,
+        style: {
+            backgroundColor: colors.primary
+        }
+    }
 });
 
 export default createAppContainer(bottomNavigation) //**pass CafeAppNavigator instead to return things to before**
