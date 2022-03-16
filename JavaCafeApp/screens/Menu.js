@@ -43,41 +43,41 @@ const Menu = props => {
                 </View>
 
                 <FlatList horizontal
-                data={products}
-                keyExtractor={item => item.id}
-                renderItem={itemData => 
-                
-                <View style={styles.subMenuItem}>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate('ProductSelection', {productId: itemData.item.id, productTitle: itemData.item.title})}}>
-                        <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                        <Text style={styles.text}>{itemData.item.title}</Text>
-                    </TouchableOpacity>
-                </View>}/>
+                    data={products}
+                    keyExtractor={item => item.id}
+                    renderItem={itemData =>
+
+                        <View style={styles.subMenuItem}>
+                            <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
+                                <Image style={styles.image} source={{ uri: itemData.item.imageUrl }}></Image>
+                                <Text style={styles.text}>{itemData.item.title}</Text>
+                            </TouchableOpacity>
+                        </View>} />
                 <FlatList horizontal
-                data={cold}
-                keyExtractor={item => item.id}
-                renderItem={itemData => 
-                <View style={styles.subMenuItem}>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate('ProductSelection', {productId: itemData.item.id, productTitle: itemData.item.title})}}>
-                        <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                        <Text style={styles.text}>{itemData.item.title}</Text>
-                    </TouchableOpacity>
-                </View>}/>
+                    data={cold}
+                    keyExtractor={item => item.id}
+                    renderItem={itemData =>
+                        <View style={styles.subMenuItem}>
+                            <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
+                                <Image style={styles.image} source={{ uri: itemData.item.imageUrl }}></Image>
+                                <Text style={styles.text}>{itemData.item.title}</Text>
+                            </TouchableOpacity>
+                        </View>} />
                 <FlatList horizontal
-                data={pastries}
-                keyExtractor={item => item.id}
-                renderItem={itemData => 
-                <View style={styles.subMenuItem}>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate('ProductSelection', {productId: itemData.item.id, productTitle: itemData.item.title})}}>
-                        <Image style={styles.image} source={{uri:itemData.item.imageUrl}}></Image>
-                        <Text style={styles.text}>{itemData.item.title}</Text>
-                    </TouchableOpacity>
-                </View>}/>
+                    data={pastries}
+                    keyExtractor={item => item.id}
+                    renderItem={itemData =>
+                        <View style={styles.subMenuItem}>
+                            <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
+                                <Image style={styles.image} source={{ uri: itemData.item.imageUrl }}></Image>
+                                <Text style={styles.text}>{itemData.item.title}</Text>
+                            </TouchableOpacity>
+                        </View>} />
             </View>
-            
-            <View style={styles.navbar}>
+
+            {/* <View style={styles.navbar}>
                 <BottomNavigation navigation={props.navigation}/>
-            </View>
+            </View> */}
         </View>
     );
 }
