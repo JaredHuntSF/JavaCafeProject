@@ -14,7 +14,10 @@ import Orders from '../screens/Employee/Orders';
 headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} ></HeaderButtons>
 
 const EmployeeCafeNavigator = createStackNavigator({
-    Orders: Orders,
+    Orders: {
+        screen: Orders,
+        headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} ></HeaderButtons>
+    }
 }, {
     defaultNavigationOptions: {
         headerStyle: {
