@@ -38,11 +38,11 @@ const FulfillOrderScreen = props => {
                 renderItem={renderOrderItem}
             />
             <ScrollView>
-                <Text style={styles.subheaderText}>Delay?</Text>
+                <Text style={styles.subheaderText}>Ready?</Text>
                 <View style={styles.delayButtonContainer}>
                     <View style={styles.button}><Button color={colors.secondary} title='Notify Customer' /></View>
                 </View>
-                <Text style={styles.subheaderText}>Ready?</Text>
+                <Text style={styles.subheaderText}>Delay?</Text>
                 <View style={styles.readyButtonContainer}>
                     <View style={styles.button}><Button color={colors.secondary} title='5 MIN' /></View>
                     <View style={styles.button}><Button color={colors.secondary} title='10 MIN' /></View>
