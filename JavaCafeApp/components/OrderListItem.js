@@ -3,9 +3,15 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import colors from '../constants/colors';
 
-const OrderListItem = (props) => {
+const OrderListItem = props => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            props.navigation.navigate({
+                routeName: 'FulfillOrderScreen', params: {
+                    orderId: props.orderId
+                }
+            });
+        }}>
             <View style={styles.listItem}>
                 <Text style={styles.listContent}>Order# {props.orderId}</Text>
                 <Text style={styles.listContent}>{props.customerFirstName} {props.customerLastName}</Text>
