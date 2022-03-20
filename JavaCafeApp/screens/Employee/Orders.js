@@ -7,12 +7,13 @@
  */
 
 import React from 'react';
-import { View, FlatList, Text, TouchableWithoutFeedback, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, FlatList, Text, TouchableWithoutFeedback, TouchableOpacity, Button, StyleSheet } from 'react-native';
 
 import TopNavigation from '../../components/TopNavigation';
 import CUSTOMER_ORDERS from '../../data/orders-dummy-data';
 import colors from '../../constants/colors';
 import OrderListItem from '../../components/OrderListItem';
+import FulfillOrderScreen from './FulfillOrderScreen';
 
 const orderListItemSeparator = () => {
     return (
@@ -20,17 +21,18 @@ const orderListItemSeparator = () => {
     )
 };
 
-const Orders = () => {
+const Orders = props => {
     return (
         <View style={styles.screen}>
             <TopNavigation />
             <FlatList style={styles.flatlist} data={CUSTOMER_ORDERS} renderItem={singleOrder =>
                 <OrderListItem
+                    navigation={props.navigation}
                     style={styles.listItems}
                     orderId={singleOrder.item.id}
                     customerFirstName={singleOrder.item.customerFirstName}
                     customerLastName={singleOrder.item.customerLastName}
-                    onPress={() => { }} />}  //REFACTOR: Implement Navigation to FulfillOrderScreen
+                />}
                 ItemSeparatorComponent={orderListItemSeparator} />
         </View>
     )
