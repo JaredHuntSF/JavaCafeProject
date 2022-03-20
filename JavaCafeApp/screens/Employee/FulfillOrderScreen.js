@@ -24,13 +24,15 @@ const FulfillOrderScreen = props => {
                     <Text style={styles.orderItemText}>Large Coffee</Text>
                     <Text style={styles.orderItemText}>QTY: 1</Text>
                 </Card>
+                <Text style={styles.subheaderText}>Delay?</Text>
+                <View style={styles.delayButtonContainer}>
+                    <View style={styles.button}><Button color={colors.secondary} title='Notify Customer' /></View>
+                </View>
                 <Text style={styles.subheaderText}>Ready?</Text>
-                <Button style={styles.button} title='Notify Customer' />
-                <Text style={styles.subheaderText}>Ready?</Text>
-                <View style={styles.buttonContainer}>
-                    <Button style={styles.button} title='5 MIN' />
-                    <Button style={styles.button} title='10 MIN' />
-                    <Button style={styles.button} title='15 MIN' />
+                <View style={styles.readyButtonContainer}>
+                    <View style={styles.button}><Button color={colors.secondary} title='5 MIN' /></View>
+                    <View style={styles.button}><Button color={colors.secondary} title='10 MIN' /></View>
+                    <View style={styles.button}><Button color={colors.secondary} title='15 MIN' /></View>
                 </View>
             </ScrollView>
         </View>
@@ -55,6 +57,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
+    orderItemText: {
+        color: colors.text
+    },
     subheaderText: {
         color: colors.text,
         fontSize: size.subheaderText,
@@ -63,7 +68,16 @@ const styles = StyleSheet.create({
     },
     button: {
         color: colors.secondary,
-        width: '40%'
+        width: '30%'
+    },
+    delayButtonContainer: {
+        marginVertical: 20,
+        alignItems: 'center'
+    },
+    readyButtonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical: 20,
     }
 });
 
