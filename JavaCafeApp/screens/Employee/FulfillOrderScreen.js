@@ -9,21 +9,35 @@ import React from 'react';
 import { View, Text, Button, FlatList, ScrollView, StyleSheet } from 'react-native';
 
 import Card from '../../components/Card';
+import CUSTOMER_ORDERS from '../../data/orders-dummy-data';
 import colors from '../../constants/colors';
 import size from '../../constants/size';
 
 const FulfillOrderScreen = props => {
+
+    const renderOrderItem = itemData => {
+        return (
+            <Card style={styles.orderItem}>
+                <Text style={styles.orderItemText}>{itemData.item}</Text>
+                {/*REFACTOR: Get QTY from db */}
+                <Text style={styles.orderItemText}>QTY</Text>
+            </Card>);
+    }
+    const orderId = props.navigation.getParam('orderId');
+    const selectedOrder = CUSTOMER_ORDERS.find(order => order.id === orderId);
+
     return (
         <View style={styles.screen}>
             <View style={styles.header}>
-                {/*REFACTOR: Take Input from Orders Screen */}
-                <Text style={styles.headerText}>Order# 57</Text>
+                <Text style={styles.headerText}>Order# {orderId}</Text>
             </View>
+            <FlatList
+                style={styles.flatlist}
+                data={selectedOrder.saleItems}
+                keyExtractor={(item, index) => item}
+                renderItem={renderOrderItem}
+            />
             <ScrollView>
-                <Card style={styles.orderItem}>
-                    <Text style={styles.orderItemText}>Large Coffee</Text>
-                    <Text style={styles.orderItemText}>QTY: 1</Text>
-                </Card>
                 <Text style={styles.subheaderText}>Delay?</Text>
                 <View style={styles.delayButtonContainer}>
                     <View style={styles.button}><Button color={colors.secondary} title='Notify Customer' /></View>
@@ -55,7 +69,8 @@ const styles = StyleSheet.create({
     },
     orderItem: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginVertical: 5
     },
     orderItemText: {
         color: colors.text
