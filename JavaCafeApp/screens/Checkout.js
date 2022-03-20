@@ -6,18 +6,19 @@
 
 import React, { useState } from 'react';
 import { View, Text, FlatList, Button, StyleSheet, Platform, TouchableOpacity, Switch } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import BottomNavigation from '../components/BottomNavigation';
-
+import * as cartActions from '../store/actions/cart';
 import Colors from '../constants/colors';
 import CartItem from '../components/CartItem';
 import { backgroundColor, color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import colors from '../constants/colors';
+
 
 const Checkout = props => {
 const cartTotalAmount = useSelector(state => state.cart.totalAmount);
@@ -32,8 +33,9 @@ const cartItems = useSelector(state => {
         sum: state.cart.items[key].sum
     });
     }
-    return transformedCartItems;
+    return transformedCartItems.sort((a, b) => a.productId > b.productId ? 1 : -1); //Added simple sort functionality so that when items are deleted the items in the cart do not move around
 });
+const dispatch = useDispatch();
 
 const [isEnabled, setIsEnabled] = useState(false);
 const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -60,7 +62,9 @@ return (
                         quantity={itemData.item.quantity}
                         title={itemData.item.productTitle}
                         amount={itemData.item.sum}
-                        onRemove={() => {}}
+                        onRemove={() => {
+                            dispatch(cartActions.removeFromCart(itemData.item.productId))
+                        }}
                     />
                     )}
                     />
