@@ -22,6 +22,7 @@ const orderListItemSeparator = () => {
 };
 
 const Orders = props => {
+
     const renderListItem = itemData => {
         return (
             <OrderListItem
