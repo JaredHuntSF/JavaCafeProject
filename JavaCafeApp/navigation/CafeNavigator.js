@@ -16,6 +16,8 @@ import AccountRegistration from '../screens/AccountRegistration';
 import ForgotPassword from '../screens/ForgotPassword';
 import AccountCreated from '../screens/AccountCreated';
 import { Ionicons } from '@expo/vector-icons';
+import Orders from '../screens/Employee/Orders';
+import FulfillOrderScreen from '../screens/Employee/FulfillOrderScreen';
 
 
 /**
@@ -26,6 +28,8 @@ import { Ionicons } from '@expo/vector-icons';
 const CafeAppNavigator = createStackNavigator({
     //AccountRegistration: AccountRegistration,
     //Home: Home,
+    //Orders: Orders,
+    //FulfillOrderScreen: FulfillOrderScreen,
     Menu: Menu,
     //Checkout: Checkout,
     Allergies: Allergies,
@@ -36,7 +40,7 @@ const CafeAppNavigator = createStackNavigator({
     ForgotPassword: ForgotPassword,
     AccountCreated: AccountCreated,
     Login: Login,
-    
+
 }, {
     defaultNavigationOptions: {
         headerStyle: {
