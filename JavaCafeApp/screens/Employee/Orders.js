@@ -30,7 +30,7 @@ const Orders = () => {
                     orderId={singleOrder.item.id}
                     customerFirstName={singleOrder.item.customerFirstName}
                     customerLastName={singleOrder.item.customerLastName}
-                    onPress={() => { }} />}
+                    onPress={() => { }} />}  //REFACTOR: Implement Navigation to FulfillOrderScreen
                 ItemSeparatorComponent={orderListItemSeparator} />
         </View>
     )

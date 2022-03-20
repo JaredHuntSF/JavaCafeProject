@@ -14,6 +14,7 @@ import Tip from '../screens/Tip';
 import ProductSelection from '../screens/ProductSelection';
 import AccountRegistration from '../screens/AccountRegistration';
 import ForgotPassword from '../screens/ForgotPassword';
+import AccountCreated from '../screens/AccountCreated';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -23,7 +24,6 @@ import { Ionicons } from '@expo/vector-icons';
  * up here; is this what we want?
  */
 const CafeAppNavigator = createStackNavigator({
-    //Login: Login,
     //AccountRegistration: AccountRegistration,
     //Home: Home,
     Menu: Menu,
@@ -33,7 +33,10 @@ const CafeAppNavigator = createStackNavigator({
     Tip: Tip,
     ProductSelection: ProductSelection,
     AccountInfo: AccountInfo,
-    ForgotPassword: ForgotPassword
+    ForgotPassword: ForgotPassword,
+    AccountCreated: AccountCreated,
+    Login: Login,
+    
 }, {
     defaultNavigationOptions: {
         headerStyle: {

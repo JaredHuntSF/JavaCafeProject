@@ -37,6 +37,15 @@ const cartItems = useSelector(state => {
 
 const [isEnabled, setIsEnabled] = useState(false);
 const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+if (cartItems.length === 0){
+ return(<View style={styles.screen}>
+    <View style={styles.noitems}>
+        <Text style={styles.noitemstext}>Your cart is currently empty. Why not add some items?</Text>
+    </View>      
+    
+</View>)
+}
+else
 return (
 <View style={styles.screen}>
         
@@ -245,6 +254,21 @@ contentHolder: {
 },
 flatlist: {
 
+},
+noitemstext: {
+    color: colors.header,
+    fontSize: 20,
+    margin: 14,
+    justifyContent: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: colors.header,
+    paddingBottom: 10
+},
+noitems: {
+    color: colors.header,
+    fontSize: 20,
+    marginTop: 200,
+    
 }
 });
 
