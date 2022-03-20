@@ -7,13 +7,12 @@
  */
 
 import React from 'react';
-import { View, FlatList, Text, TouchableWithoutFeedback, TouchableOpacity, Button, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 
 import TopNavigation from '../../components/TopNavigation';
 import CUSTOMER_ORDERS from '../../data/orders-dummy-data';
 import colors from '../../constants/colors';
 import OrderListItem from '../../components/OrderListItem';
-import FulfillOrderScreen from './FulfillOrderScreen';
 
 const orderListItemSeparator = () => {
     return (
