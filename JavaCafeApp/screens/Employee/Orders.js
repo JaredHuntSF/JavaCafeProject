@@ -22,17 +22,24 @@ const orderListItemSeparator = () => {
 };
 
 const Orders = props => {
+    const renderListItem = itemData => {
+        return (
+            <OrderListItem
+                navigation={props.navigation}
+                style={styles.listItems}
+                orderId={itemData.item.id}
+                customerFirstName={itemData.item.customerFirstName}
+                customerLastName={itemData.item.customerLastName}
+            />
+        )
+    }
     return (
         <View style={styles.screen}>
             <TopNavigation />
-            <FlatList style={styles.flatlist} data={CUSTOMER_ORDERS} renderItem={singleOrder =>
-                <OrderListItem
-                    navigation={props.navigation}
-                    style={styles.listItems}
-                    orderId={singleOrder.item.id}
-                    customerFirstName={singleOrder.item.customerFirstName}
-                    customerLastName={singleOrder.item.customerLastName}
-                />}
+            <FlatList
+                style={styles.flatlist}
+                data={CUSTOMER_ORDERS}
+                renderItem={renderListItem}
                 ItemSeparatorComponent={orderListItemSeparator} />
         </View>
     )
