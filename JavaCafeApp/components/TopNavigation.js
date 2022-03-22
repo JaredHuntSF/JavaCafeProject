@@ -16,7 +16,7 @@ const TopNavigation = props => {
     return (
         <View style={styles.topNavigationContainer}>
             <TouchableWithoutFeedback onPress={() => {
-                props.navigation.navigate({ routeName: 'StoreSelection' });
+                props.navigation.navigate({ routeName: 'PastOrders' });
             }}>
                 <Ionicons style={styles.menuIcon} name='menu-sharp'></Ionicons>
             </TouchableWithoutFeedback>

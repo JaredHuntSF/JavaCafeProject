@@ -1,5 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/cart";
 import CartItem from "../../models/cartItem";
+import { ADD_ORDER } from "../actions/orders";
 
 const initialState = {
     items: {}, 
@@ -58,6 +59,8 @@ export default (state = initialState, action) => {
                 items: updatedCartItems,
                 totalAmount: state.totalAmount - selectedCartItem.productPrice
             }
+            case ADD_ORDER:
+                return initialState; //Returning initial state here as a way to clear the cart when the user presses the "submit order" button since initial state is empty (as seen at the top of this file)
 
     }
     return state;

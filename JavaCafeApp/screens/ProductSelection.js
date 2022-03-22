@@ -33,9 +33,9 @@ const ProductSelection = props => {
         <Text style={styles.description}>{selectedProduct.description}</Text>
         
       </ScrollView>
-      <View style={styles.navbar}>
+      {/* <View style={styles.navbar}>
         <BottomNavigation navigation={props.navigation}/>
-      </View>
+      </View> */}
     </View>
   );
 };

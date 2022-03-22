@@ -14,6 +14,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import BottomNavigation from '../components/BottomNavigation';
 import * as cartActions from '../store/actions/cart';
+import * as ordersActions from '../store/actions/orders'
 import Colors from '../constants/colors';
 import CartItem from '../components/CartItem';
 import { backgroundColor, color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
@@ -137,7 +138,10 @@ return (
 
             <View style={styles.submitOrder}>
                     <TouchableOpacity
-                        style={styles.button}
+                    style={styles.button}
+                    onPress={() => {
+                        dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
+                    }}
                     //disabled={cartItems.length === 0}
                     >
                         <Text style={styles.buttonText}>Submit Order</Text>
@@ -145,9 +149,10 @@ return (
             </View>
         </View>
         
-        <View style={styles.bottomBar}>
+        {/* <View style={styles.bottomBar}> 
             <BottomNavigation navigation={props.navigation} />
-        </View>
+        </View> */} 
+        
 
 
     

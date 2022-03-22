@@ -40,6 +40,7 @@ const CafeAppNavigator = createStackNavigator({
     ForgotPassword: ForgotPassword,
     AccountCreated: AccountCreated,
     Login: Login,
+    PastOrders: PastOrders
 
 }, {
     defaultNavigationOptions: {
