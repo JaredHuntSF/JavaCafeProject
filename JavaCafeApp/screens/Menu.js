@@ -1,10 +1,10 @@
 /**
   * Menu: The menu screen for the application
-  * @authors Teddy Grzywa, Jared Hunt, Mo Auguste
+  * @authors Teddy Grzywa, Jared Hunt
   * @version 1.0.0
   */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, FlatList, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
 import colors from '../constants/colors';
 import { useSelector } from 'react-redux';
@@ -34,120 +34,117 @@ const Menu = props => {
         setFilter('');
     }
 
-    if (filter === 'hot')
-    {
+    if (filter === 'hot') {
         return (
             <View style={styles.container}>
-            <View style={styles.contentcontainer}>
-                <View style={styles.filter}>
-                    <TouchableOpacity style={styles.button} onPress={removeFilter}>
-                        <Text style={styles.buttonText} on>Menu</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyHotFilter}>
-                        <Text style={styles.buttonText}>Hot Brew</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyColdFilter}>
-                        <Text style={styles.buttonText}>Cold Brew</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyPastriesFilter}>
-                        <Text style={styles.buttonText}>Pastries</Text>
-                    </TouchableOpacity>
+                <View style={styles.contentcontainer}>
+                    <View style={styles.filter}>
+                        <TouchableOpacity style={styles.button} onPress={removeFilter}>
+                            <Text style={styles.buttonText} on>Menu</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyHotFilter}>
+                            <Text style={styles.buttonText}>Hot Brew</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyColdFilter}>
+                            <Text style={styles.buttonText}>Cold Brew</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyPastriesFilter}>
+                            <Text style={styles.buttonText}>Pastries</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={hot}
+                        keyExtractor={item => item.id}
+                        renderItem={itemData =>
+
+                            <View style={styles.subMenuItem}>
+                                <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
+                                    <Image style={styles.filteredImage} source={{ uri: itemData.item.imageUrl }}></Image>
+                                    <Text style={styles.text}>{itemData.item.title}</Text>
+                                </TouchableOpacity>
+                            </View>} />
+
                 </View>
-                <FlatList
-                    data={hot}
-                    keyExtractor={item => item.id}
-                    renderItem={itemData =>
 
-                        <View style={styles.subMenuItem}>
-                            <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
-                                <Image style={styles.filteredImage} source={{ uri: itemData.item.imageUrl }}></Image>
-                                <Text style={styles.text}>{itemData.item.title}</Text>
-                            </TouchableOpacity>
-                        </View>} />
-                
-            </View>
-
-            {/* <View style={styles.navbar}>
+                {/* <View style={styles.navbar}>
                 <BottomNavigation navigation={props.navigation}/>
             </View> */}
-        </View>
+            </View>
         )
     }
-    else if (filter === 'cold')
-    {
+    else if (filter === 'cold') {
         return (
             <View style={styles.container}>
-            <View style={styles.contentcontainer}>
-                <View style={styles.filter}>
-                    <TouchableOpacity style={styles.button} onPress={removeFilter}>
-                        <Text style={styles.buttonText} on>Menu</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyHotFilter}>
-                        <Text style={styles.buttonText}>Hot Brew</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyColdFilter}>
-                        <Text style={styles.buttonText}>Cold Brew</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyPastriesFilter}>
-                        <Text style={styles.buttonText}>Pastries</Text>
-                    </TouchableOpacity>
+                <View style={styles.contentcontainer}>
+                    <View style={styles.filter}>
+                        <TouchableOpacity style={styles.button} onPress={removeFilter}>
+                            <Text style={styles.buttonText} on>Menu</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyHotFilter}>
+                            <Text style={styles.buttonText}>Hot Brew</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyColdFilter}>
+                            <Text style={styles.buttonText}>Cold Brew</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyPastriesFilter}>
+                            <Text style={styles.buttonText}>Pastries</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={cold}
+                        keyExtractor={item => item.id}
+                        renderItem={itemData =>
+                            <View style={styles.subMenuItem}>
+                                <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
+                                    <Image style={styles.filteredImage} source={{ uri: itemData.item.imageUrl }}></Image>
+                                    <Text style={styles.text}>{itemData.item.title}</Text>
+                                </TouchableOpacity>
+                            </View>} />
                 </View>
-                <FlatList
-                    data={cold}
-                    keyExtractor={item => item.id}
-                    renderItem={itemData =>
-                        <View style={styles.subMenuItem}>
-                            <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
-                                <Image style={styles.filteredImage} source={{ uri: itemData.item.imageUrl }}></Image>
-                                <Text style={styles.text}>{itemData.item.title}</Text>
-                            </TouchableOpacity>
-                        </View>} />
-            </View>
 
-            {/* <View style={styles.navbar}>
+                {/* <View style={styles.navbar}>
                 <BottomNavigation navigation={props.navigation}/>
             </View> */}
-        </View>
+            </View>
         )
     }
-    else if (filter === 'pastry')
-    {
+    else if (filter === 'pastry') {
         return (
             <View style={styles.container}>
-            <View style={styles.contentcontainer}>
-                <View style={styles.filter}>
-                    <TouchableOpacity style={styles.button} onPress={removeFilter}>
-                        <Text style={styles.buttonText} on>Menu</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyHotFilter}>
-                        <Text style={styles.buttonText}>Hot Brew</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyColdFilter}>
-                        <Text style={styles.buttonText}>Cold Brew</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={applyPastriesFilter}>
-                        <Text style={styles.buttonText}>Pastries</Text>
-                    </TouchableOpacity>
+                <View style={styles.contentcontainer}>
+                    <View style={styles.filter}>
+                        <TouchableOpacity style={styles.button} onPress={removeFilter}>
+                            <Text style={styles.buttonText} on>Menu</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyHotFilter}>
+                            <Text style={styles.buttonText}>Hot Brew</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyColdFilter}>
+                            <Text style={styles.buttonText}>Cold Brew</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={applyPastriesFilter}>
+                            <Text style={styles.buttonText}>Pastries</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={pastries}
+                        keyExtractor={item => item.id}
+                        renderItem={itemData =>
+                            <View style={styles.subMenuItem}>
+                                <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
+                                    <Image style={styles.filteredImage} source={{ uri: itemData.item.imageUrl }}></Image>
+                                    <Text style={styles.text}>{itemData.item.title}</Text>
+                                </TouchableOpacity>
+                            </View>} />
                 </View>
-                <FlatList
-                    data={pastries}
-                    keyExtractor={item => item.id}
-                    renderItem={itemData =>
-                        <View style={styles.subMenuItem}>
-                            <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
-                                <Image style={styles.filteredImage} source={{ uri: itemData.item.imageUrl }}></Image>
-                                <Text style={styles.text}>{itemData.item.title}</Text>
-                            </TouchableOpacity>
-                        </View>} />
-            </View>
 
-            {/* <View style={styles.navbar}>
+                {/* <View style={styles.navbar}>
                 <BottomNavigation navigation={props.navigation}/>
             </View> */}
-        </View>
+            </View>
         )
     }
-    else{
+    else {
         return (
 
             <View style={styles.container}>
@@ -170,7 +167,7 @@ const Menu = props => {
                         data={hot}
                         keyExtractor={item => item.id}
                         renderItem={itemData =>
-    
+
                             <View style={styles.subMenuItem}>
                                 <TouchableOpacity onPress={() => { props.navigation.navigate('ProductSelection', { productId: itemData.item.id, productTitle: itemData.item.title }) }}>
                                     <Image style={styles.image} source={{ uri: itemData.item.imageUrl }}></Image>
@@ -198,14 +195,14 @@ const Menu = props => {
                                 </TouchableOpacity>
                             </View>} />
                 </View>
-    
+
                 {/* <View style={styles.navbar}>
                     <BottomNavigation navigation={props.navigation}/>
                 </View> */}
             </View>
         );
     }
-    
+
 }
 
 const styles = StyleSheet.create({
