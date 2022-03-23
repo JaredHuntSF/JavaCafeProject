@@ -19,6 +19,7 @@ import { Ionicons } from '@expo/vector-icons';
 import Orders from '../screens/Employee/Orders';
 import FulfillOrderScreen from '../screens/Employee/FulfillOrderScreen';
 import EmployeeProductScreen from '../screens/Employee/EmployeeProductScreen';
+import Debug from '../screens/Debug';
 
 
 /**
@@ -42,7 +43,8 @@ const CafeAppNavigator = createStackNavigator({
     AccountCreated: AccountCreated,
     Login: Login,
     PastOrders: PastOrders,
-    EmployeeProductScreen: EmployeeProductScreen
+    EmployeeProductScreen: EmployeeProductScreen,
+    Debug: Debug
 
 }, {
     defaultNavigationOptions: {
