@@ -7,8 +7,10 @@
 import React from 'react';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import colors from '../constants/colors';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 /* Code to be refractored to take user information from the database */
 const AccountInfo = props => {
@@ -39,6 +41,17 @@ const AccountInfo = props => {
             <View style={styles.body}>
                 <Text style={styles.headerText}>Call Your Selected Store</Text>
                 <Text style={styles.bodyText}>(352)555-1004</Text>     
+            </View> 
+
+            <View>
+                <TouchableOpacity style={styles.touchable} onPress={() => Alert.alert(
+                    'Account Deletion',
+                    'Warning, this action is permanent. Unredeemed JC Coins will be irrecoverable. Are you sure you would like to delete your Java Cafe account?',
+                    [
+                    {text: 'Yes', onPress: () => console.log('Yes button clicked')},
+                    {text: 'No', onPress: () => console.log('No button clicked'), style: 'cancel'},],{cancelable: true})}>
+                        <Text style={styles.warning}>Delete Account</Text>
+                </TouchableOpacity>
             </View> 
         </View>
     );
@@ -83,6 +96,15 @@ bodyText: {
     color: 'white',
     flexDirection: 'column',
     padding: 5,
+},
+warning: {
+    color: 'red',
+    fontSize: 18
+},
+touchable: {
+    margin: 20,
+    marginTop: 40,
+
 }
 });
 
