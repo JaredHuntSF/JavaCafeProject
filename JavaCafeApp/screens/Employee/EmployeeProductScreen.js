@@ -24,7 +24,7 @@ const products = useSelector(state => state.products.availableProducts);
                 style={styles.button}
                 onPress={() => {}}
                 >
-                    <Text style={styles.buttonText}>Submit Order</Text>
+                    <Text style={styles.buttonText}>Edit Product</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.buttonWarning}
