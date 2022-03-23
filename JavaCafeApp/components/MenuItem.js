@@ -13,17 +13,17 @@ import colors from '../constants/colors';
 
 const MenuItem = props => {
 return (
-<View>
+<View style={styles.container}>
     
-<View style={styles.touchable}>
+<View style={styles.contentContainer}>
                 
                 <View>
                     <View style={styles.imageContainer}>
-                        <Image style={styles.image} source={{uri: props.image}}/>
+                        <Image style={styles.filteredImage} source={{uri: props.image}}/>
                     </View>
                     <View style={styles.details} >
-                        <Text style={styles.title} > {props.title}</Text>
-                        <Text style={styles.price} >${props.price.toFixed(2)}</Text>
+                        <Text style={styles.text} > {props.title}</Text>
+                        <Text style={styles.text} >${props.price.toFixed(2)}</Text>
                     </View>
                     <View style={styles.actions}>
                         {props.children}
@@ -52,7 +52,17 @@ subMenuImg: {
     },
 text: {
         color: colors.text
-    }
+    },
+filteredImage: {
+        width: 275,
+        height: 275,
+    },
+container: {
+        backgroundColor: colors.primary,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
 
 });
 
