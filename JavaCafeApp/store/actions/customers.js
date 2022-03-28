@@ -10,14 +10,17 @@
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';
 
 export const addCustomer = (id, customerName, email, phone, password) => {
-    return {
-        type: ADD_CUSTOMER,
-        customerData: {
-            id: id,
-            customerName: customerName,
-            email: email,
-            phone: phone,
-            password: password
-        }
+    return dispatch => {
+        fetch('https://java-cafe-19cf1-default-rtdb.firebaseio.com/customer');
+        dispatch({
+            type: ADD_CUSTOMER,
+            customerData: {
+                id,
+                customerName,
+                email,
+                phone,
+                password
+            }
+        });
     }
 }
