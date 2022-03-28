@@ -15,15 +15,10 @@ import size from '../constants/size';
 const TopNavigation = props => {
     return (
         <View style={styles.topNavigationContainer}>
-            <TouchableWithoutFeedback onPress={() => {
-                props.navigation.navigate({ routeName: 'Debug' });
-            }}>
-                <Ionicons style={styles.menuIcon} name='menu-sharp'></Ionicons>
-            </TouchableWithoutFeedback>
             <View style={styles.accountIconContainer}>
                 <TouchableWithoutFeedback onPress={() => {
-                props.navigation.navigate({ routeName: 'AccountInfo' });
-            }}>
+                    props.navigation.navigate({ routeName: 'AccountInfo' });
+                }}>
                     <Ionicons style={styles.accountIcon} name='person-sharp'></Ionicons>
                 </TouchableWithoutFeedback>
             </View>
