@@ -136,11 +136,12 @@ const bottomNavigation = createBottomTabNavigator({
     }
 });
 
-const sideDrawer = createDrawerNavigator({
-    Home: bottomNavigation,
-    Oder_History: PastOrders,
-    Account_Settings: AccountInfo,
-    Allergy_Settings: Allergies
-});
+// does not work with android
+// const sideDrawer = createDrawerNavigator({
+//     Home: bottomNavigation,
+//     Oder_History: PastOrders,
+//     Account_Settings: AccountInfo,
+//     Allergy_Settings: Allergies
+// });
 
 export default createAppContainer(bottomNavigation) //**pass CafeAppNavigator instead to return things to before**
