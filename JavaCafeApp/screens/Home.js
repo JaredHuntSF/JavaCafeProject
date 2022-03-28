@@ -13,9 +13,6 @@ import Card from '../components/Card';
 import BottomNavigation from "../components/BottomNavigation";
 import colors from "../constants/colors";
 import textSize from "../constants/size";
-import { HeaderButtons } from "react-navigation-header-buttons";
-import { HeaderButton } from "react-navigation-header-buttons";
-import { Item } from "react-navigation-header-buttons";
 
 const Home = props => {
 
@@ -54,7 +51,7 @@ const Home = props => {
 
     return (
         <View style={styles.screen}>
-
+            {/**  <TopNavigation navigation={props.navigation} />*/}
             <Card style={styles.greetingContainer}>
                 {/**Refactor Code: Insert greeting*/}
                 <Text style={styles.greeting}>Good Morning, {currentUser.current}</Text>
@@ -98,14 +95,12 @@ const Home = props => {
     )
 }
 
-
-
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: colors.primary,
-        paddingTop: 50
+        marginTop: 20,
+        backgroundColor: colors.primary
     },
     greeting: {
         textAlign: "center",
@@ -113,7 +108,8 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     greetingContainer: {
-        marginVertical: 30
+        marginVertical: 30,
+        marginTop: 70
     },
     receiptRecapTitle: {
         textAlign: "center",
