@@ -125,8 +125,7 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     greetingContainer: {
-        marginVertical: 30,
-        marginTop: 70
+        marginVertical: 30
     },
     receiptRecapTitle: {
         textAlign: "center",
