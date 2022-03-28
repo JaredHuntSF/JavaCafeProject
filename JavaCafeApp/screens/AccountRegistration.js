@@ -219,10 +219,14 @@ const AccountRegistration = props => {
                             value={phone} />
                         <View style={styles.button} >
                             {/* Making onPress direct to login screen as placeholder for application, onPress={submitHandler} */}
-                            <Button title="Sign Up" color={colors.assessory} onPress={() => {
-                            props.navigation.navigate({ routeName: 'Login' })
-                            }} /> 
-                        </View> 
+                            {/* onPress={() => {
+                            props.navigation.navigate({ routeName: 'Login' }) }}*/}
+                            <Button
+                                title="Sign Up"
+                                color={colors.assessory}
+                                onPress={submitHandler}
+                            />
+                        </View>
                     </View>
                 </ScrollView>
             </View>
