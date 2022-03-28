@@ -1,4 +1,4 @@
-import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { createAppContainer, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
 import { Platform } from 'react-native';
 import colors from '../constants/colors';
@@ -123,6 +123,13 @@ const bottomNavigation = createBottomTabNavigator({
             backgroundColor: colors.primary
         }
     }
+});
+
+const sideDrawer = createDrawerNavigator({
+    Home: bottomNavigation,
+    Oder_History: PastOrders,
+    Account_Settings: AccountInfo,
+    Allergy_Settings: Allergies
 });
 
 export default createAppContainer(bottomNavigation) //**pass CafeAppNavigator instead to return things to before**
