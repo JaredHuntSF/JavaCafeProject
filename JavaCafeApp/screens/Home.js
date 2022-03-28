@@ -11,7 +11,7 @@ import { Ionicons } from "@expo/vector-icons";  //need to run npm install @expo/
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/HeaderButton';
-import AccountButton from "../components/AccountButton";
+import AccountHeaderButton from "../components/AccountHeaderButton";
 import Card from '../components/Card';
 import colors from "../constants/colors";
 import textSize from "../constants/size";
@@ -107,7 +107,7 @@ Home.navigationOptions = navData => {
                     navData.navigation.navigate({ routeName: 'Debug' });
                 }} />
         </HeaderButtons>,
-        headerRight: () => <HeaderButtons HeaderButtonComponent={AccountButton}>
+        headerRight: () => <HeaderButtons HeaderButtonComponent={AccountHeaderButton}>
             <Item
                 title='Account Information'
                 iconName='person-sharp'
