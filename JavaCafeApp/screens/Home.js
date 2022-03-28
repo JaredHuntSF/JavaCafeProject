@@ -14,6 +14,9 @@ import BottomNavigation from "../components/BottomNavigation";
 import colors from "../constants/colors";
 import textSize from "../constants/size";
 
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
+
 const Home = props => {
 
     const currentUser = useRef("Mike" + "!"); //Refactor Code: get value from db
@@ -95,11 +98,25 @@ const Home = props => {
     )
 }
 
+Home.navigationOptions = navData => {
+    return {
+        headerTitle: 'Home',
+        headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} >
+            <Item
+                title='Menu'
+                iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+                onPress={() => {
+                    navData.navigation.navigate({ routeName: 'Debug' });
+                }} />
+        </HeaderButtons>
+    }
+
+};
+
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignItems: 'center',
-        marginTop: 20,
         backgroundColor: colors.primary
     },
     greeting: {
