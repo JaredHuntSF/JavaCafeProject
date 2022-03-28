@@ -8,14 +8,13 @@
 import React, { useRef, useState } from "react";
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Image, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";  //need to run npm install @expo/vector-icons to get this package
-import TopNavigation from "../components/TopNavigation";
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
+import HeaderButton from '../components/HeaderButton';
+import AccountButton from "../components/AccountButton";
 import Card from '../components/Card';
-import BottomNavigation from "../components/BottomNavigation";
 import colors from "../constants/colors";
 import textSize from "../constants/size";
-
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import HeaderButton from '../components/HeaderButton';
 
 const Home = props => {
 
@@ -54,7 +53,6 @@ const Home = props => {
 
     return (
         <View style={styles.screen}>
-            {/**  <TopNavigation navigation={props.navigation} />*/}
             <Card style={styles.greetingContainer}>
                 {/**Refactor Code: Insert greeting*/}
                 <Text style={styles.greeting}>Good Morning, {currentUser.current}</Text>
@@ -101,12 +99,20 @@ const Home = props => {
 Home.navigationOptions = navData => {
     return {
         headerTitle: 'Home',
-        headerLeft: <HeaderButtons HeaderButtonComponent={HeaderButton} >
+        headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton} >
             <Item
                 title='Menu'
                 iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
                 onPress={() => {
                     navData.navigation.navigate({ routeName: 'Debug' });
+                }} />
+        </HeaderButtons>,
+        headerRight: () => <HeaderButtons HeaderButtonComponent={AccountButton}>
+            <Item
+                title='Account Information'
+                iconName='person-sharp'
+                onPress={() => {
+                    navData.navigation.navigate({ routeName: 'AccountInfo' });
                 }} />
         </HeaderButtons>
     }
