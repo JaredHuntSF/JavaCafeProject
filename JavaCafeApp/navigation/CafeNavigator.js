@@ -55,6 +55,17 @@ const CafeAppNavigator = createStackNavigator({
     }
 });
 
+const homeStack = createStackNavigator({
+    Home: Home
+}, {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? colors.primary : 'black'
+        },
+        headerTintColor: Platform.OS === 'android' ? 'white' : 'white'
+    }
+});
+
 /**
  * Delete this to return things to before
  */
@@ -88,7 +99,7 @@ const checkoutStack = createStackNavigator({
  */
 const bottomNavigation = createBottomTabNavigator({
     Home: {
-        screen: Home, navigationOptions: {
+        screen: homeStack, navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='home-sharp' size={25} color={tabInfo.tintColor} />
             }
