@@ -10,8 +10,9 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
+import ReduxThunk from 'redux-thunk';
 
-import { createStore, combineReducers } from 'redux'; //create a root reducer to combine multiple reducers into a single one
+import { createStore, combineReducers, applyMiddleware } from 'redux'; //create a root reducer to combine multiple reducers into a single one
 import { Provider } from 'react-redux'; //Provider app is wrapped around our application to, well, provide something
 import productsReducer from './store/reducers/products';
 import cartReducer from './store/reducers/cart';
@@ -39,10 +40,10 @@ const rootReducer = combineReducers({
   orders: ordersReducer
 })
 
-const store = createStore(rootReducer) //Takes rootReducer as a single argument
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk)) //Takes rootReducer as a single argument
 
 
-const Stack = createNativeStackNavigator();
+//const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [showOrder, setShowOrder] = useState(false);
