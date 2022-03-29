@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     View,
     Text,
@@ -18,8 +18,9 @@ import {
     ScrollView,
     Alert
 } from 'react-native';
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import { useDispatch } from 'react-redux';
 
+import * as customerActions from '../store/actions/customers';
 import colors from '../constants/colors';
 import size from '../constants/size';
 
@@ -42,6 +43,8 @@ const AccountRegistration = props => {
     const [emailError, setEmailError] = useState(' ');
     const [passwordError, setPasswordError] = useState(' ');
     const [phoneError, setPhoneError] = useState(' ');
+
+    const dispatch = useDispatch();
 
     /**
      * 
@@ -133,8 +136,16 @@ const AccountRegistration = props => {
             )
         } else {
             //Refactor: SUBMIT DATA TO DB
+            dispatch(
+                customerActions.addCustomer(
+                    name,
+                    email,
+                    password,
+                    phone
+                )
+            )
         }
-    }
+    };
     /**
      * runs the code on the current render; not one behind like with passwordCheckHandler
      */
@@ -147,6 +158,8 @@ const AccountRegistration = props => {
             setPasswordError('Does not match.');
         }
     });
+
+
 
     return (
         <TouchableWithoutFeedback navigation={props.navigation} onPress={() => {
