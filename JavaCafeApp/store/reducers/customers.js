@@ -11,12 +11,12 @@ export default (state = initialState, action) => {
         new Date().toString(),
         action.customerData.name,
         action.customerData.email,
+        action.customerData.password,
         action.customerData.phone
     );
 
     return {
         ...state,
-        existingCustomers
-
+        existingCustomers: state.existingCustomers.concat(newCustomer)
     };
 }
