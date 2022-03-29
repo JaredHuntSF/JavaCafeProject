@@ -9,7 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
     const newCustomer = new Customer(
         new Date().toString(),
-        action.customerData.name,
+        action.customerData.customerName,
         action.customerData.email,
         action.customerData.password,
         action.customerData.phone
