@@ -17,6 +17,7 @@ export const addCustomer = (id, customerName, email, password, phone) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                id,
                 customerName,
                 email,
                 password,
@@ -27,11 +28,12 @@ export const addCustomer = (id, customerName, email, password, phone) => {
         const responseData = await response.json();
 
         console.log(responseData);
+        console.log(responseData.name);
 
         dispatch({
             type: ADD_CUSTOMER,
             customerData: {
-                id: responseData.id,
+                id: responseData.name,
                 customerName,
                 email,
                 password,
