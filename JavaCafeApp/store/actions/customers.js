@@ -1,6 +1,6 @@
 /**
  * Customers:
- * 
+ * Handles necessary functions for adding customer data to db
  * @authors Mo Auguste
  * @date    2022-03-28 15:01:03
  * @version 1.0.0
@@ -27,8 +27,8 @@ export const addCustomer = (id, customerName, email, password, phone) => {
 
         const responseData = await response.json();
 
-        console.log(responseData);
-        console.log(responseData.name);
+        // console.log(responseData);
+        // console.log(responseData.name);
 
         dispatch({
             type: ADD_CUSTOMER,
