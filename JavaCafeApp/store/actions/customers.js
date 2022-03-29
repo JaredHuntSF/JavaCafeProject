@@ -31,7 +31,7 @@ export const addCustomer = (id, customerName, email, password, phone) => {
         dispatch({
             type: ADD_CUSTOMER,
             customerData: {
-                id,
+                id: responseData.id,
                 customerName,
                 email,
                 password,
