@@ -20,6 +20,8 @@ import Orders from '../screens/Employee/Orders';
 import FulfillOrderScreen from '../screens/Employee/FulfillOrderScreen';
 import EmployeeProductScreen from '../screens/Employee/EmployeeProductScreen';
 import Debug from '../screens/Debug';
+import Payment from '../screens/Payment';
+import AddPayment from '../screens/AddPayment';
 
 
 /**

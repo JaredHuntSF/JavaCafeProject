@@ -1,3 +1,4 @@
+
 /**
   * Payment: Lists Customer's payment options
   * @authors Teddy Grzywa
@@ -6,93 +7,104 @@
 
  import React from 'react';
  import { StyleSheet, Text, View, } from 'react-native';
- import { backgroundColor, color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+ import { Ionicons } from '@expo/vector-icons';
  import colors from '../constants/colors';
  
- /**I know we can't truely add payment so I wonder how this will connect to the database*/
- const AccountInfo = props => {
-     return(
+ const Payment = props => {
+     return (
          <View style={styles.container}>
              
              <Text style={styles.header}>Saved Payment Methods</Text>
- 
+             
              <View style={styles.body}>
-                 <icon-icon name="wallet" style={styles.icon}></icon-icon>
-                 <Text style={styles.headerText}>Visa xxxx</Text>        
-                 <Text style={styles.bodyText}>Exp. xx/xxxx</Text>
-             </View>
+                  <Text style={styles.headerText}>Visa xxxx</Text>        
+                  <Text style={styles.bodyText}>
+                     <Ionicons name='wallet' size={20} color='#FF850F'/>
+                      Exp. xx/xxxx</Text>
+              </View>
  
+              <View style={styles.body}>
+                  <Text style={styles.headerText}>MasterCard xxxx</Text>
+                  <Text style={styles.bodyText}>
+                     <Ionicons name='wallet' size={20} color='#FF850F'/>
+                      Exp. xx/xxxx</Text>
+              </View>
+  
+              <View style={styles.section}>
+                  <Text style={styles.headerText}>
+                      <Ionicons name='wallet' size={20} color='#FF850F'/>
+                      Google Pay</Text>
+                  <Text style={styles.headerText}>
+                     <Ionicons name='wallet' size={20} color='#FF850F'/>
+                     Apple Pay</Text>  
+              </View>
+  
+              <View style={styles.body}>
+                  <Text style={styles.titleText}>Add Payment</Text>
+                  <Text style={styles.headerText}>
+                     <Ionicons name='wallet' size={20} color='#FF850F'/>
+                     Credit Card 
+                     <Ionicons name='arrow-redo' size={30} color='#FF850F'
+                     onPress={() => {
+                         props.navigation.navigate({ routeName: 'AddPayment' })
+                     }}/>
+                     </Text>
  
-             <View style={styles.body}>
-                <icon-icon name="wallet" style={styles.icon}></icon-icon>
-                 <Text style={styles.headerText}>MasterCard xxxx</Text>
-                 <Text style={styles.bodyText}>Exp. xx/xxxx</Text>
-             </View>
- 
-             <View style={styles.body}>
-                <icon-icon name="wallet" style={styles.icon}></icon-icon>
-                 <Text style={styles.headerText}>Google Pay</Text>
-                 <icon-icon name="wallet" style={styles.icon}></icon-icon>
-                 <Text style={styles.headerText}>Apple Pay</Text>  
-             </View>
- 
-             <View style={styles.body}>
-                 <Text style={styles.titelText}>Add Payment</Text>
-                 <icon-icon name="wallet" style={styles.icon}></icon-icon>
-                 <Text style={styles.headerText}>Credit Card</Text>
-                 <icon-icon name="add" style={styles.icon}></icon-icon>
-            </View>
-            <View> 
-                 <icon-icon name="wallet" style={styles.icon}></icon-icon>
-                 <Text style={styles.headerText}>PayPal</Text>
-                 <icon-icon name="add" style={styles.icon}></icon-icon>     
-             </View> 
+                  <Text style={styles.headerText}>
+                     <Ionicons name='wallet' size={20} color='#FF850F'/>
+                     PayPal
+                     </Text>     
+              </View>
          </View>
      );
  }
  
- const styles = StyleSheet.create({container: {
-     flex: 1,
-     width: '100%',
-     height: '100%',
-     backgroundColor: 'black',
- },
- body: {
-     margin: 4,
-     padding: 15,
-     flexDirection: 'column',
-     //alignItems: 'center',
-     justifyContent: 'flex-start',
-     borderBottomColor: '#C1C1C1',
-     borderBottomWidth: 1,
-     borderRadius: 1,
- },
- title: {
-     marginVertical: 10,
-     fontSize: 30,
-     color: colors.text,
- },
- titelText: { 
-     fontSize: 20,
-     color: colors.text,
- },
- headerText: {
-     fontSize: 16,
-     color: 'white',
-     padding: 5,
- },
- bodyText: {
-     fontSize: 14,
-     color: 'white',
-     flexDirection: 'column',
-     padding: 5,
- },
- icon: {
-     flexDirection: 'row',
-     color: colors.text,
-     backgroundColor: colors.assessory,
-
- }
+ const styles = StyleSheet.create({
+     
+     container: {
+         flex: 1,
+         width: '100%',
+         height: '100%',
+         backgroundColor: colors.primary
+     },
+     header: {
+         margin: 15,
+         padding: 30,
+         fontSize: 36,
+         color: colors.text,
+         fontWeight: "bold",
+     },
+     body: {
+      margin: 4,
+      padding: 15,
+      width: '90%',
+      flexDirection: 'column',
+      //alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderBottomColor: '#C1C1C1',
+      borderBottomWidth: 1,
+      borderRadius: 1,
+     },
+     section: {
+         margin: 3,
+         padding: 10,
+     },
+     titleText: { 
+         fontSize: 16,
+         color: colors.text,
+         fontWeight: "bold"
+     },
+     headerText: {
+         fontSize: 16,
+         padding: 5,
+         color: colors.header
+     },
+     bodyText: {
+         fontSize: 14,
+         flexDirection: 'column',
+         padding: 5,
+         color: colors.header,
+         
+     }
  });
- 
- export default Payment;
+  export default Payment;
