@@ -30,7 +30,7 @@ import AddPayment from '../screens/AddPayment';
  * up here; is this what we want?
  */
 const CafeAppNavigator = createStackNavigator({
-    //AccountRegistration: AccountRegistration,
+    AccountRegistration: AccountRegistration,
     //Home: Home,
     //Orders: Orders,
     //FulfillOrderScreen: FulfillOrderScreen,
