@@ -46,7 +46,8 @@ const CafeAppNavigator = createStackNavigator({
     Login: Login,
     PastOrders: PastOrders,
     EmployeeProductScreen: EmployeeProductScreen,
-    Debug: Debug
+    Debug: Debug,
+    Payment: Payment
 
 }, {
     defaultNavigationOptions: {
