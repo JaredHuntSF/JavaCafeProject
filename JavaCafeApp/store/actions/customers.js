@@ -26,8 +26,8 @@ export const addCustomer = (customerName, email, password, phone) => {
 
         const responseData = await response.json();
 
-        // console.log(responseData);
-        // console.log(responseData.name);
+        console.log(responseData);
+        console.log(responseData.name);
 
         dispatch({
             type: ADD_CUSTOMER,
