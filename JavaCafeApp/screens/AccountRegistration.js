@@ -144,6 +144,7 @@ const AccountRegistration = props => {
                     phone
                 )
             )
+            props.navigation.navigate('Login')
         }
     };
     /**
