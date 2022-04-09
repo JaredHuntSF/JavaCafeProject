@@ -44,6 +44,7 @@ const AccountRegistration = props => {
     const [emailError, setEmailError] = useState(' ');
     const [passwordError, setPasswordError] = useState(' ');
     const [phoneError, setPhoneError] = useState(' ');
+    const [error, setError] = useState('');
 
     const dispatch = useDispatch();
 
@@ -99,7 +100,12 @@ const AccountRegistration = props => {
     /**
      * submitting user input
      */
-    const submitHandler = () => {
+    useEffect(() => {
+        if (error) {
+            Alert.alert('There was a problem', error, [{ text: 'OK' }]);
+        }
+    }, [error]);
+    const submitHandler = async () => {
         if (name.length == 0) {
             Alert.alert(
                 'Missing Name', 'Please enter a name.',
@@ -137,15 +143,21 @@ const AccountRegistration = props => {
             )
         } else {
             //Refactor: SUBMIT DATA TO DB
-            dispatch(
-                authActions.signup(
-                    name,
-                    email,
-                    password,
-                    phone
+            try {
+                await dispatch(
+                    authActions.signup(
+                        name,
+                        email,
+                        password,
+                        phone
+                    )
                 )
-            )
-            props.navigation.navigate('Login')
+                props.navigation.navigate('Login')
+            }
+            catch (err) {
+                setError(err.message);
+            }
+            // props.navigation.navigate('Login')
         }
     };
     /**
