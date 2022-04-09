@@ -1,6 +1,18 @@
 import * as customerActions from '../actions/customers';
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
+export const VERIFY = 'VERIFY';
+
+// export const verify = (email) => {
+//     return async dispatch => {
+//         const response = await fetch(
+//             'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAmCWaDdTfcnv7SCeLpOvBj_qbsG24EPRY',
+//             {
+//                 method: 'POST'
+//             }
+//         )
+//     }
+// }
 
 export const signup = (name, email, password, phone) => {
     return async dispatch => {
