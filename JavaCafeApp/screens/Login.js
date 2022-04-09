@@ -26,6 +26,12 @@ const Login = props => {
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        if (error) {
+            Alert.alert('There was a problem', error, [{ text: 'OK' }]);
+        }
+    }, [error]);
+
     const loginHandler = async () => {
         setError(null);
         try {

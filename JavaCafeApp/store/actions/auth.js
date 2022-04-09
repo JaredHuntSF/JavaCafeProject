@@ -59,11 +59,17 @@ export const login = (email, password) => {
 
         if (!response.ok) {
             const errorResponseData = await response.json();
-            console.log(errorResponseData);
+            const errorId = errorResponseData.error.message;
+            let message = '';
+            if (errorId == 'EMAIL_NOT_FOUND' || 'INVALID_PASSWORD') {
+                message = 'Email and/or Password is invalid.';
+            }
+            throw new Error(message);
         }
 
-        const resData = await response.json();
-        console.log(resData);
+        // const resData = await response.json();
+        // console.log(resData);
+
         dispatch({ type: LOGIN });
     };
 };
