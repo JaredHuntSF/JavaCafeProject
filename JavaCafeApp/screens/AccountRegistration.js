@@ -21,6 +21,7 @@ import {
 import { useDispatch } from 'react-redux';
 
 import * as customerActions from '../store/actions/customers';
+import * as authActions from '../store/actions/auth';
 import colors from '../constants/colors';
 import size from '../constants/size';
 
@@ -137,7 +138,7 @@ const AccountRegistration = props => {
         } else {
             //Refactor: SUBMIT DATA TO DB
             dispatch(
-                customerActions.addCustomer(
+                authActions.signup(
                     name,
                     email,
                     password,
