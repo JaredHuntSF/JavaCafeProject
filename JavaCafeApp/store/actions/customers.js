@@ -29,6 +29,9 @@ export const addCustomer = (customerName, email, password, phone) => {
         console.log(responseData);
         console.log(responseData.name);
 
+        /**
+         * CAN PLACE SIGNUP ACTION ID HERE BY USING 467
+         */
         dispatch({
             type: ADD_CUSTOMER,
             customerData: {
