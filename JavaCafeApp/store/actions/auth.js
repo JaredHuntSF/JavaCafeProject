@@ -31,11 +31,18 @@ export const signup = (name, email, password, phone) => {
                 )
             )
         } else if (!response.ok) {
-            throw new Error('Something went wrong!');
+            const errorResponseData = await response.json();
+            const errorId = errorResponseData.error.message;
+            let message = '';
+            if (errorId) {
+                message = 'Fill in all inputs.';
+            }
+            throw new Error(message);
         }
 
         const resData = await response.json();
         console.log(resData);
+
         dispatch({ type: SIGNUP });
     };
 };
