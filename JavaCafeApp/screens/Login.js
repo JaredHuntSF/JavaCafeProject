@@ -8,7 +8,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import colors from '../constants/colors';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as authActions from '../store/actions/auth';
 
@@ -26,22 +26,22 @@ const Login = props => {
 
     const dispatch = useDispatch();
 
-    const loginHandler = () => {
-        //setError(null);
+    const loginHandler = async () => {
+        setError(null);
         try {
-            dispatch(
+            await dispatch(
                 authActions.login(
                     email,
                     password,
                 )
             )
+            props.navigation.navigate('Home');
         } catch (err) {
             setError(err.message);
         }
         //props.navigation.navigate('Home')
         console.log(email);
         console.log(password);
-        console.log(error);
     };
 
     const passwordHandler = input => {
