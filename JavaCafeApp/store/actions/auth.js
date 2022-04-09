@@ -1,3 +1,4 @@
+import * as customerActions from '../actions/customers';
 export const SIGNUP = 'SIGNUP';
 
 export const signup = (name, email, password, phone) => {
@@ -19,7 +20,16 @@ export const signup = (name, email, password, phone) => {
             }
         );
 
-        if (!response.ok) {
+        if (response.ok) {
+            dispatch(
+                customerActions.addCustomer(
+                    name,
+                    email,
+                    password,
+                    phone
+                )
+            )
+        } else if (!response.ok) {
             throw new Error('Something went wrong!');
         }
 
