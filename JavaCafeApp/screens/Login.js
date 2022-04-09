@@ -45,9 +45,6 @@ const Login = props => {
         } catch (err) {
             setError(err.message);
         }
-        //props.navigation.navigate('Home')
-        console.log(email);
-        console.log(password);
     };
 
     const passwordHandler = input => {
