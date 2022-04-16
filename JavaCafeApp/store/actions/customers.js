@@ -9,17 +9,17 @@
 
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';
 
-export const addCustomer = (customerName, email, password, phone) => {
+export const addCustomer = (customerId, customerName, email, phone) => {
     return async dispatch => {
-        const response = await fetch('https://java-cafe-19cf1-default-rtdb.firebaseio.com/customer.json', {
+        const response = await fetch('https://java-cafe-728d1-default-rtdb.firebaseio.com/customer.json', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                customerId,
                 customerName,
                 email,
-                password,
                 phone
             })
         });
@@ -38,7 +38,6 @@ export const addCustomer = (customerName, email, password, phone) => {
                 id: responseData.name,
                 customerName,
                 email,
-                password,
                 phone
             }
         });

@@ -36,14 +36,19 @@ export const signup = (name, email, password, phone) => {
 
         // TODO maybe place account details separate frpm this
         if (response.ok) {
-            // dispatch(
-            //     customerActions.addCustomer(
-            //         name,
-            //         email,
-            //         password,
-            //         phone
-            //     )
-            // )
+            const resData = await response.json();
+            console.log('Sign Up: ', resData);
+
+            const customerId = resData.localId;
+            console.log('User Id: ', customerId);
+            dispatch(
+                customerActions.addCustomer(
+                    customerId,
+                    name,
+                    email,
+                    phone
+                )
+            )
         } else if (!response.ok) {
             const errorResponseData = await response.json();
             const errorId = errorResponseData.error.message;
@@ -54,8 +59,11 @@ export const signup = (name, email, password, phone) => {
             throw new Error(message);
         }
 
-        const resData = await response.json();
-        console.log(resData);
+        // const resData = await response.json();
+        // console.log('Sign Up: ', resData);
+
+        // const customerId = resData.localId;
+        // console.log('User Id: ', customerId);
 
         dispatch({ type: SIGNUP });
     };
