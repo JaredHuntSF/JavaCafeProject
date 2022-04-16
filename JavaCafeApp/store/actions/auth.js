@@ -1,6 +1,10 @@
+import { AsyncStorage } from 'react-native';
+
 import * as customerActions from '../actions/customers';
+
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
+export const AUTHENTICATE = 'AUTHENTICATE';
 export const VERIFY = 'VERIFY';
 
 // export const verify = (email) => {
@@ -13,6 +17,15 @@ export const VERIFY = 'VERIFY';
 //         )
 //     }
 // }
+
+// let timer;
+
+export const authenticate = (userId, token, expiryTime) => {
+    return dispatch => {
+        // dispatch(setLogoutTimer(expiryTime));
+        dispatch({ type: AUTHENTICATE, userId: userId, token: token });
+    };
+};
 
 //TODO remove name, and phone if implementing account details separately
 export const signup = (name, email, password, phone) => {
@@ -59,18 +72,35 @@ export const signup = (name, email, password, phone) => {
             throw new Error(message);
         }
 
-        // const resData = await response.json();
-        // console.log('Sign Up: ', resData);
-
-        // const customerId = resData.localId;
-        // console.log('User Id: ', customerId);
-
-        dispatch({ type: SIGNUP });
+        const resData = await response.json();
+        console.log(resData);
+        dispatch(
+            authenticate(
+                resData.localId,
+                resData.idToken,
+                // parseInt(resData.expiresIn) * 1000
+            )
+        );
+        // const expirationDate = new Date(
+        //     new Date().getTime() + parseInt(resData.expiresIn) * 1000
+        // );
+        // saveDataToStorage(resData.idToken, resData.localId);
     };
+
+    // const resData = await response.json();
+    // console.log('Sign Up: ', resData);
+
+    // const customerId = resData.localId;
+    // console.log('User Id: ', customerId);
+
+    // dispatch({ type: SIGNUP });
 };
 
 export const login = (email, password) => {
-    return async dispatch => {
+    return async (dispatch, getState) => {
+
+        console.log(getState);
+
         const response = await fetch(
             'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCS0SsedwMT3RiFdw0-b8Up17Rf9_7eOj0',
             {
@@ -96,9 +126,23 @@ export const login = (email, password) => {
             throw new Error(message);
         }
 
+
         // const resData = await response.json();
         // console.log(resData);
 
-        dispatch({ type: LOGIN });
+        const resData = await response.json();
+        console.log(resData);
+        dispatch(
+            authenticate(
+                resData.localId,
+                resData.idToken,
+                // parseInt(resData.expiresIn) * 1000
+            )
+        );
+        // const expirationDate = new Date(
+        //     new Date().getTime() + parseInt(resData.expiresIn) * 1000
+        // );
+        // saveDataToStorage(resData.idToken, resData.localId);
     };
 };
+
