@@ -6,7 +6,7 @@ export const VERIFY = 'VERIFY';
 // export const verify = (email) => {
 //     return async dispatch => {
 //         const response = await fetch(
-//             'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAmCWaDdTfcnv7SCeLpOvBj_qbsG24EPRY',
+//             'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyCS0SsedwMT3RiFdw0-b8Up17Rf9_7eOj0',
 //             {
 //                 method: 'POST'
 //             }
@@ -18,7 +18,7 @@ export const VERIFY = 'VERIFY';
 export const signup = (name, email, password, phone) => {
     return async dispatch => {
         const response = await fetch(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAmCWaDdTfcnv7SCeLpOvBj_qbsG24EPRY',
+            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCS0SsedwMT3RiFdw0-b8Up17Rf9_7eOj0',
             {
                 method: 'POST',
                 headers: {
@@ -36,14 +36,14 @@ export const signup = (name, email, password, phone) => {
 
         // TODO maybe place account details separate frpm this
         if (response.ok) {
-            dispatch(
-                customerActions.addCustomer(
-                    name,
-                    email,
-                    password,
-                    phone
-                )
-            )
+            // dispatch(
+            //     customerActions.addCustomer(
+            //         name,
+            //         email,
+            //         password,
+            //         phone
+            //     )
+            // )
         } else if (!response.ok) {
             const errorResponseData = await response.json();
             const errorId = errorResponseData.error.message;
@@ -64,7 +64,7 @@ export const signup = (name, email, password, phone) => {
 export const login = (email, password) => {
     return async dispatch => {
         const response = await fetch(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAmCWaDdTfcnv7SCeLpOvBj_qbsG24EPRY',
+            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCS0SsedwMT3RiFdw0-b8Up17Rf9_7eOj0',
             {
                 method: 'POST',
                 headers: {
