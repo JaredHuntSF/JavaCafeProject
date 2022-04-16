@@ -14,6 +14,7 @@ export const VERIFY = 'VERIFY';
 //     }
 // }
 
+//TODO remove name, and phone if implementing account details separately
 export const signup = (name, email, password, phone) => {
     return async dispatch => {
         const response = await fetch(
@@ -33,6 +34,7 @@ export const signup = (name, email, password, phone) => {
             }
         );
 
+        // TODO maybe place account details separate frpm this
         if (response.ok) {
             dispatch(
                 customerActions.addCustomer(
