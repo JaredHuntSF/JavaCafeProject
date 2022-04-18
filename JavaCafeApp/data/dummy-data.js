@@ -6,7 +6,7 @@ const PRODUCTS = [
     'hot',
     'Cappuccino',
     'https://i.imgur.com/axjV5Ac.jpeg',
-    'A red t-shirt, perfect for days with non-red weather.',
+    'A nice hot cappuccino!',
     29.99
   ),
   new Product(

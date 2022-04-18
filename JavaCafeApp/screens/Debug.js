@@ -26,6 +26,9 @@ const Debug = props => {
             <TouchableOpacity style={styles.touchable} onPress={() => { props.navigation.navigate('AccountRegistration') }}>
                 <Text style={styles.warning}>Account Registration</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.touchable} onPress={() => { props.navigation.navigate('AddProduct') }}>
+                <Text style={styles.warning}>Add Product</Text>
+            </TouchableOpacity>
         </View>
     );
 }

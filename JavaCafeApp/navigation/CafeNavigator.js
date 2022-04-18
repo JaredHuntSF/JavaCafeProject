@@ -22,6 +22,7 @@ import EmployeeProductScreen from '../screens/Employee/EmployeeProductScreen';
 import Debug from '../screens/Debug';
 import Payment from '../screens/Payment';
 import AddPayment from '../screens/AddPayment';
+import AddProductPage from '../screens/Employee/AddProduct';
 
 
 /**
@@ -30,11 +31,14 @@ import AddPayment from '../screens/AddPayment';
  * up here; is this what we want?
  */
 const CafeAppNavigator = createStackNavigator({
-    AccountRegistration: AccountRegistration,
+    
     //Home: Home,
     //Orders: Orders,
     //FulfillOrderScreen: FulfillOrderScreen,
+
     Menu: Menu,
+    AccountRegistration: AccountRegistration,
+    AddProduct: AddProductPage,
     //Checkout: Checkout,
     Allergies: Allergies,
     //StoreSelection: StoreSelection,
