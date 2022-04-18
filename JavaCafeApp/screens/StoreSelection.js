@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { StyleSheet, FlatList, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, FlatList, Text, View, TouchableOpacity, Alert} from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import BottomNavigation from '../components/BottomNavigation';
@@ -17,32 +17,31 @@ return (
             Select your store:
     </Text>
         <View style={styles.block}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() =>Alert.alert("Store selected.", "1234 Museum Rd has been selected.")}>
             <Text style={styles.stores}>
                 1234 Museum Rd{"\n"}
                 0.2 Miles - Open Now - 4PM
             </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() =>Alert.alert("Store selected.", "1234 SW Archer has been selected.")}>
             <Text style={styles.stores}>
                 1234 SW Archer{"\n"}
                 0.4 Miles - Open Now - 4PM
             </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>Alert.alert("Store selected.", "1234 SW Celebration Point has been selected.")}>
             <Text style={styles.stores}>
                 1234 SW Celebration Point{"\n"}
                 1.5 Miles - Open Now - 4PM
             </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>Alert.alert("Store selected.", "1234 SW Newberry Rd has been selected.")}>
             <Text style={styles.stores}>
                 1234 SW Newberry Rd{"\n"}
                 3.2 Miles - Open Now - 4PM
             </Text>
         </TouchableOpacity>
         </View>
-    {/* <BottomNavigation navigation={props.navigation} />  */}
 </View>
 )
 }
@@ -61,10 +60,6 @@ StoreSelection.navigationOptions = navData => {
     }
     
 };
-
-// const clickableIcon {
-    
-// }
 
 const styles = StyleSheet.create({
     screen: {
