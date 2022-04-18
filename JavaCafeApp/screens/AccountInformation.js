@@ -25,7 +25,9 @@ const AccountInfo = props => {
 
             <View style={styles.body}>
                 <Text style={styles.headerText}>Payment</Text>
+                <TouchableOpacity onPress={()=>{props.navigation.navigate('Payment')}}>
                 <Text style={styles.bodyText}>Manage all payment methods here</Text>
+                </TouchableOpacity>
             </View>
 
             <View style={styles.body}>

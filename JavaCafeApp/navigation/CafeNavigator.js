@@ -39,9 +39,9 @@ const CafeAppNavigator = createStackNavigator({
     Menu: Menu,
     AccountRegistration: AccountRegistration,
     AddProduct: AddProductPage,
-    //Checkout: Checkout,
+    Checkout: Checkout,
     Allergies: Allergies,
-    //StoreSelection: StoreSelection,
+    StoreSelection: StoreSelection,
     Tip: Tip,
     ProductSelection: ProductSelection,
     AccountInfo: AccountInfo,
@@ -51,7 +51,8 @@ const CafeAppNavigator = createStackNavigator({
     PastOrders: PastOrders,
     EmployeeProductScreen: EmployeeProductScreen,
     Debug: Debug,
-    Payment: Payment
+    Payment: Payment,
+    AddPayment : AddPayment
 
 }, {
     defaultNavigationOptions: {
