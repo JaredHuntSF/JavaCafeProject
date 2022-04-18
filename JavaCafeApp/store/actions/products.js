@@ -6,7 +6,15 @@ import Product from "../../models/product";
 
 
 export const deleteProduct = productId => {
-  return { type: DELETE_PRODUCT, pid: productId };
+  return async dispatch => {
+    await fetch(
+      `https://seniorprojectjavacafe-default-rtdb.firebaseio.com/products/${productId}.json`,
+      {
+        method: 'DELETE'
+      }
+    );
+    dispatch({ type: DELETE_PRODUCT, pid: productId });
+  };
 };
 
 
