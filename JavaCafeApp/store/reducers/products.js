@@ -1,20 +1,27 @@
 import PRODUCTS from "../../data/dummy-data";
-import { DELETE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT } from '../actions/products';
+import { DELETE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT, SET_PRODUCTS } from '../actions/products';
 import Product from '../../models/product';
 
 const initialState = {
     availableProducts: PRODUCTS, //Initialize availableProducts with the PRODUCTS imported from dummy-data.js 
     hotProducts: PRODUCTS.filter(prod => prod.prodId === 'hot'),//Only show products that are hot
     coldProducts: PRODUCTS.filter(prod => prod.prodId === 'cold'),//Only show products that are cold
-    pastryProducts: PRODUCTS.filter(prod => prod.prodId === 'pastry')//Only show products that are pastries
+    pastryProducts: PRODUCTS.filter(prod => prod.prodId === 'pastry'),//Only show products that are pastries
     
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case SET_PRODUCTS:
+            return{
+                availableProducts: action.products,
+                hotProducts: action.products.filter(prod => prod.prodId === 'hot'),
+                coldProducts: action.products.filter(prod => prod.prodId === 'cold'),
+                pastryProducts: action.products.filter(prod => prod.prodId === 'pastry')
+            }
         case CREATE_PRODUCT:
         const newProduct = new Product(
-        new Date().toString(),
+        action.productData.id,
         'hot',
         action.productData.title,
         action.productData.imageUrl,

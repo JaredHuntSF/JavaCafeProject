@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   label: {
+
     marginVertical: 8
   },
   input: {

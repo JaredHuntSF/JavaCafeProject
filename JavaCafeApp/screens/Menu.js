@@ -4,12 +4,13 @@
   * @version 1.0.0
   */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, FlatList, Text, View, TouchableOpacity, Button, ScrollView, Image } from 'react-native';
 import colors from '../constants/colors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import MenuItem from '../components/MenuItem';
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import * as productsActions from '../store/actions/products'
 
 import BottomNavigation from '../components/BottomNavigation';
 
@@ -19,6 +20,11 @@ const Menu = props => {
     const cold = useSelector(state => state.products.coldProducts)
     const pastries = useSelector(state => state.products.pastryProducts)
     const [filter, setFilter] = useState('');
+    const dispatch = useDispatch();
+
+    useEffect(() => {dispatch(productsActions.fetchProducts());}, 
+    [dispatch]);
+
 
 
     const applyHotFilter = () => {
