@@ -5,14 +5,15 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  Platform, TouchableOpacity
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import HeaderButton from '../../components/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-
-
 import * as productsActions from '../../store/actions/products';
+import colors from '../../constants/colors';
+
+
+
+
 
 const AddProduct = props => {
   const identifier = props.navigation.getParam('prodId');
@@ -39,7 +40,7 @@ const AddProduct = props => {
 
   return (
       
-    <ScrollView>
+    <ScrollView style={styles.background}>
       <View style={styles.form}>
         <View style={styles.formControl}>
           <Text style={styles.label}>Title</Text>
@@ -103,14 +104,18 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   label: {
-
-    marginVertical: 8
+    marginVertical: 8,
+    color: colors.text
   },
   input: {
+    color: colors.text,
     paddingHorizontal: 2,
     paddingVertical: 5,
-    borderBottomColor: '#ccc',
+    borderBottomColor: colors.header,
     borderBottomWidth: 1
+  },
+  background: {
+    backgroundColor: colors.primary
   }
 });
 
