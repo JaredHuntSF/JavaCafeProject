@@ -12,9 +12,8 @@
  import { StyleSheet, Text, View, } from 'react-native';
  import { Alert, Button } from 'react-native-web';
  import { FlatList } from 'react-navigation';
- import Card from '../../components/Card';
  import CUSTOMER_ORDERS from '../../data/orders-dummy-data';
- import colors from '../constants/colors';
+ import colors from '../../constants/colors';
 
 
 
