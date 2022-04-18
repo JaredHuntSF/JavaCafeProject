@@ -20,6 +20,9 @@ const Debug = props => {
             <TouchableOpacity style={styles.touchable} onPress={() => { props.navigation.navigate('EmployeeProductScreen') }}>
                 <Text style={styles.warning}>Employee Product Screen</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.touchable} onPress={() => { props.navigation.navigate('Orders') }}>
+                <Text style={styles.warning}>Employee Order Screen</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.touchable} onPress={() => { props.navigation.navigate('PastOrders') }}>
                 <Text style={styles.warning}>Past Orders</Text>
             </TouchableOpacity>

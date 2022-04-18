@@ -50,9 +50,11 @@ const CafeAppNavigator = createStackNavigator({
     Login: Login,
     PastOrders: PastOrders,
     EmployeeProductScreen: EmployeeProductScreen,
+    FulfillOrderScreen: FulfillOrderScreen,
+    Orders: Orders,
     Debug: Debug,
     Payment: Payment,
-    AddPayment : AddPayment
+    AddPayment: AddPayment
 
 }, {
     defaultNavigationOptions: {
