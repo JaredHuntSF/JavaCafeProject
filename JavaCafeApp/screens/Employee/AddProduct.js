@@ -20,15 +20,10 @@ const AddProduct = props => {
     state.products.availableProducts.find(prod => prod.id === identifier)
   );
   const dispatch = useDispatch();
-
   const [title, setTitle] = useState(editedProduct ? editedProduct.title : '');
-  const [imageUrl, setImageUrl] = useState(
-    editedProduct ? editedProduct.imageUrl : ''
-  );
+  const [imageUrl, setImageUrl] = useState(editedProduct ? editedProduct.imageUrl : '');
   const [price, setPrice] = useState('');
-  const [description, setDescription] = useState(
-    editedProduct ? editedProduct.description : ''
-  );
+  const [description, setDescription] = useState(editedProduct ? editedProduct.description : '');
 
   const submitHandler = useCallback(() => 
   {
@@ -108,7 +103,6 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   label: {
-    fontFamily: 'open-sans-bold',
     marginVertical: 8
   },
   input: {
