@@ -19,7 +19,7 @@ const AccountInfo = props => {
 
             <View style={styles.body}>
                 <Text style={styles.headerText}>Profile</Text>        
-                <Text style={styles.bodyText}>Mike</Text>
+                <Text style={styles.bodyText}>User Account Name</Text>
             </View>
 
 
