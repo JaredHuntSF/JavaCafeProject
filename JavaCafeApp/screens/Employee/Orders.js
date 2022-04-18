@@ -8,8 +8,6 @@
 
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
-
-import TopNavigation from '../../components/TopNavigation';
 import CUSTOMER_ORDERS from '../../data/orders-dummy-data';
 import colors from '../../constants/colors';
 import OrderListItem from '../../components/OrderListItem';
@@ -35,7 +33,6 @@ const Orders = props => {
     }
     return (
         <View style={styles.screen}>
-            <TopNavigation />
             <FlatList
                 style={styles.flatlist}
                 data={CUSTOMER_ORDERS}
